@@ -9,10 +9,10 @@ copy website ngo - https://aman1919.github.io/static-websites/copy%20website%20n
 
 count - https://aman1919.github.io/static-websites/count-random/count.html
 
-frontend
-   Ableton -https://aman1919.github.io/static-websites/frontend/Ableton/index.html
-   backstage talks - https://aman1919.github.io/static-websites/frontend/backstage%20talks/
-   lobe tour - https://aman1919.github.io/static-websites/frontend/lobe%20tour/
+frontend:-
+Ableton -https://aman1919.github.io/static-websites/frontend/Ableton/index.html
+backstage talks - https://aman1919.github.io/static-websites/frontend/backstage%20talks/
+lobe tour - https://aman1919.github.io/static-websites/frontend/lobe%20tour/
    
 layout2 - https://aman1919.github.io/static-websites/layout%202/ne_w.html
 
