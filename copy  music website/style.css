@@ -93,7 +93,7 @@ section#first h1{
     gap: 20px;
     padding: 25px;
     text-align: center;
-    padding: 20px 100px;
+    padding: 40px 25px;
   }
   section#second button{
     padding: 10px 20px;
@@ -121,7 +121,7 @@ section#first h1{
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30px 100px;
+    padding: 40px 25px;
     gap: 40px;
     background: url("pexels-rakicevic-nenad-1274260.jpg") no-repeat center center/cover;
     width: 100%;
@@ -140,18 +140,26 @@ section#first h1{
     display: flex;
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
 width: 100%;
-padding: 20px 100px;
+padding-bottom: 1rem;
+  }
+  #gift-card>div{
+    width: 90%;
+    margin: 0 auto;
   }
   section#gift-card img{
+    width:100%;
     max-width: 500px;
     height: auto;
+    display: inline;
   }
+
   div#gift-card-div{
     display: flex;
+    
     flex-direction: column;
     justify-content:center;
-    align-items: flex-start;
     gap: 10px;
   }
   /*footer section starts here*/
@@ -160,7 +168,8 @@ padding: 20px 100px;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    padding: 20px 100px;
+    flex-wrap: wrap;
+    padding: 20px;
     background-color: #323232;
     color: white;
   
