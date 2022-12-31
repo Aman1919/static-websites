@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: sans-serif;
+      }
+      main {
+        display: grid;
+        place-content: center;
+        height: 40vw;
+        color: white;
+      }
+      .con-count {
+        background-color: rgba(0, 0, 0, 0.664);
+        display: grid;
+        justify-items: center;
+        max-width: 800px;
+        min-width: 500px;
+        padding: 4.7rem 2rem;
+        border-radius: 20px;
+        box-shadow: 0 0 1.4rem black;
+      }
+
+      .div-count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      button {
+        margin: 0.7rem 1.8rem;
+        border: rgba(255, 255, 255, 0.775) 3px solid;
+        background-color: rgba(0, 0, 0, 0.812);
+        color: rgba(255, 255, 255, 0.811);
+        border-radius: 100%;
+        font-size: 1.4rem;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0.4rem black;
+      }
+      button:hover,
+      button:active {
+        border: rgba(0, 0, 0, 0.812) 3px solid;
+        color: rgba(0, 0, 0, 0.812);
+        background-color: rgba(255, 255, 255, 0.621);
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="con-count">
+        <h1>count</h1>
+        <div class="div-count">
+          <button id="plus">+</button>
+          <p id="count">0</p>
+          <button id="neg">-</button>
+        </div>
+      </div>
+    </main>
+    <script src="count.js"></script>
+  </body>
+</html>

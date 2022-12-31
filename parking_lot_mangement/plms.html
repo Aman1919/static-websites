@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking Lot Mangement System</title>
+    <link rel="stylesheet" href="plms.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Parking Lot Mangement System</h1>
+    </header>
+    <div id="add-car-form">
+      <h3>Add Car to Parking Lot</h3>
+      <form action="" id="car-input-form">
+        <label for="owner">Owner:</label>
+        <input
+          type="text"
+          placeholder="Enter Your Name"
+          name="owner"
+          id="owner-input"
+          class="input-box"
+
+        />
+        <label for="carName">Car Name:</label>
+        <input
+          class="input-box"
+          type="text"
+          name="carName"
+          id="car-name-input"
+          placeholder="Enter your car name"
+        />
+        <label for="carNumber">Car Number</label>
+        <input
+          type="text"
+          name="carNumber"
+          id="carnumber-input"
+          placeholder="NN-NN-LL,NN-NN-LL"
+          class="input-box"
+        />
+        <div id="timmings">
+          <label for="EntryTime">Entry date:</label>
+          <input
+            type="date"
+            name="EntryTime"
+            id="EntryTime-input"
+            class="input-box"
+          />
+
+          <label for="ExitTime">Exit date:</label>
+          <input
+            type="date"
+            name="ExitTime"
+            id="ExitTime-input"
+            class="input-box"
+          />
+        </div>
+        <input type="submit" id="submit-input" value="Add Car" />
+      </form>
+    </div>
+    <main>
+        <h3>List of Cars</h3>
+        
+        <div id="car-lists">
+          <table id="mytable">
+            <thead>
+              <tr>
+                <th scope="col">Owner</th>
+                <th scope="col">Car</th>
+                <th scope="col">Car Number</th>
+                <th scope="col">Entry Date</th>
+                <th scope="col">Exit Date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!--<tr class="car-list">
+                <td>Bmw</td>
+                <td>nnsddjk</td>
+                <td>Aman</td>
+                <td>10/12/300</td>
+                <td>11/25/200</td>
+                <td><button class="delete">X</button></td>-->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </main>
+    <script src="plms.js"></script>
+  </body>
+</html>

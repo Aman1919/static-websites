@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        div.img{
+max-width: 100%;
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+justify-content: center;
+align-items: center;
+                } 
+                       div.img img{
+            max-width: 500px;
+            max-height: 600px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="contanier">
+        <a href="nav.html" class="logo-img">
+          <img
+            src="https://gangaayurvedic.com/wp-content/uploads/2018/06/cropped-GANGA-LOGO-NEW6-Copy-2.jpg"
+            alt=""
+          />
+        </a>
+        <nav>
+          <ul class="nav-list">
+            <li class="dropdown">
+              <a href="nav.html">Home <span>&#8964;</span></a>
+              <ul class="drop-list">
+                <li><a href="treatment.html"> Treatment</a></li>
+                <li><a href=""> services</a></li>
+                <li><a href=""> Packages</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" onclick="location.href='about.html'"
+                >About us <span>&#8964;</span></a
+              >
+              <ul class="drop-list">
+                <li><a href="gallery.html"> gallery</a></li>
+                <li><a href="program.html"> Program</a></li>
+              </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </nav>
+        <div class="menu" id="menu-div">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div id="cross" class="menu"><strong>&#10006;</strong></div>
+      </div>
+    </header>
+
+
+    
+    <div class="sub-header">
+        <p>Gallery</p>
+        <span>Home <strong> ></strong>Gallery</span>
+      </div>
+  
+<div class="contanier">
+<div class="img">
+  <img src="https://gangaayurvedic.com/wp-content/uploads/2018/06/33077907_1364263683674660_789956124819324928_n.jpg" alt="">
+  <img src="https://gangaayurvedic.com/wp-content/uploads/2018/06/33505958_1364263567008005_5999879792785096704_n.jpg" alt="">
+  <img src="https://gangaayurvedic.com/wp-content/uploads/2018/06/33184016_1361792820588413_7896372183436361728_n.jpg" alt="">
+  <img src="https://gangaayurvedic.com/wp-content/uploads/2018/06/33734898_1364263827007979_9101665853530701824_n.jpg" alt="">
+  <img src="https://gangaayurvedic.com/wp-content/uploads/2018/06/31949073_1347282438706118_2530832169480224768_n.jpg" alt="">
+  <img src="https://gangaayurvedic.com/wp-content/uploads/2018/06/31952998_1347283422039353_2198346884102225920_n-1.jpg" alt="">
+</div>
+
+</div>
+
+
+
+<footer>
+  <div class="contanier">
+    <div class="row-div">
+      <div>
+        <h4>General Inquiries</h4>
+        <p>
+          dranand@gangaayurvedalaya.com / <br />
+          gangaayurvedalaya.com <br />
+          9415687743
+        </p>
+      </div>
+      <div>
+        <h4>Clinic address</h4>
+        <p>
+          Ganga Ayurvedic Chikitsalaya <br />
+          Hiramanpur, Sarnath, Varanasi <br />
+          Contact | Blog
+        </p>
+      </div>
+      <div>
+        <h4>Opentime</h4>
+        <p>
+          8:00 a.m. - 11:30 a.m. <br />
+          2:00 p.m. - 5:30 p.m. <br />
+          7:00 p.m. - 10:00 p.m. <br />
+        </p>
+      </div>
+      <div>
+        <label for="email"> Email : </label>
+        <input type="email" name="email" />
+        <button class=" ">subscribe</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let menu = document.
+getElementById("menu-div");
+  let nav = document.querySelector
+(".nav-list");
+  let cross = document.
+getElementById("cross");
+  let navtag = document.
+querySelector("nav");
+  menu.addEventListener("click", 
+() => {
+    nav.style.display = "block";
+    menu.style.display = "none";
+    cross.style.display = "block";
+    navtag.style.display = "flex";
+  });
+  cross.addEventListener("click", 
+() => {
+    nav.style.display = "none";
+    menu.style.display = "flex";
+    cross.style.display = "none";
+    navtag.style.display = "none";
+  });
+</script>
+</body>
+</html>

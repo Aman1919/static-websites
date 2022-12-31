@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nav.css" />
+    <style>
+      div.maps {
+        max-width: 100%;
+      }
+      div.maps iframe {
+        width: 100%;
+      }
+
+      div.col h3 {
+        font-size: 22px;
+        color: #292929;
+        font-weight: 500;
+        margin: 2rem 0 1rem;
+        text-align: left;
+      }
+      div.col p {
+        text-align: left;
+        font-size: 13px;
+        color: #606060;
+        padding: 0rem;
+        font-weight: 500;
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="greenheader">
+      <p>+91 9415687743</p>
+      <p>dranand@gangaayurvedalaya.com</p>
+    </div>
+    <header>
+      <div class="contanier">
+        <a href="nav.html" class="logo-img">
+          <img
+            src="https://gangaayurvedic.com/wp-content/
+      uploads/2018/06/cropped-GANGA-LOGO-NEW6-Copy-2.
+      jpg"
+            alt=""
+          />
+        </a>
+        <nav>
+          <ul class="nav-list">
+            <li class="dropdown">
+              <a href="nav.html">Home <span>&#8964;</span></a>
+              <ul class="drop-list">
+                <li><a href="treatment.html"> Treatment</a></li>
+                <li><a href=""> services</a></li>
+                <li><a href=""> Packages</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="about.html" onclick="location.href='about.html'"
+                >About us <span>&#8964;</span></a
+              >
+              <ul class="drop-list">
+                <li><a href="gallery.html"> gallery</a></li>
+                <li><a href="program.html"> Program</a></li>
+              </ul>
+            </li>
+            <li><a href="">Blog</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </nav>
+        <div class="menu" id="menu-div">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div id="cross" class="menu"><strong>&#10006;</strong></div>
+      </div>
+    </header>
+    <!-- maps -->
+
+    <div class="maps">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.433549657366!2d83.00594921481796!3d25.35678228382231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2ee9aaaaaaab%3A0x86f8ffe71492593a!2sGanga%20ayurvedic%20chikitsalaya!5e0!3m2!1sen!2sin!4v1656037783208!5m2!1sen!2sin"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <!-- form starts -->
+    <section class="contact">
+      <div class="contanier">
+        <div class="row-div col" style="flex-direction: column">
+          <div>
+            <h3>Address</h3>
+            <p>
+              Ganga Ayurvedic Chikitsalaya, Hari Sarnath, Varanasi, Uttar
+              Pradesh.
+            </p>
+          </div>
+          <div>
+            <h3>Phone</h3>
+            <p>+91 9415687743</p>
+          </div>
+          <div>
+            <h3>Email address</h3>
+            <p>Dranand@gangaayurvedalaya.com</p>
+          </div>
+          <div>
+            <h3>Business Hours</h3>
+            <p>Monday/Saturday: 7am to 6pm</p>
+          </div>
+        </div>
+
+        <form action="">
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="email" />
+          <input type="number" placeholder="Contact Number" />
+          <textarea
+            id=""
+            cols="30"
+            placeholder="Write your message"
+            rows="10"
+          ></textarea>
+          <button>contact us</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- footer  -->
+    <footer>
+      <div class="contanier">
+        <div class="row-div">
+          <div>
+            <h4>General Inquiries</h4>
+            <p>
+              dranand@gangaayurvedalaya.com / <br />
+              gangaayurvedalaya.com <br />
+              9415687743
+            </p>
+          </div>
+          <div>
+            <h4>Clinic address</h4>
+            <p>
+              Ganga Ayurvedic Chikitsalaya <br />
+              Hiramanpur, Sarnath, Varanasi <br />
+              Contact | Blog
+            </p>
+          </div>
+          <div>
+            <h4>Opentime</h4>
+            <p>
+              8:00 a.m. - 11:30 a.m. <br />
+              2:00 p.m. - 5:30 p.m. <br />
+              7:00 p.m. - 10:00 p.m. <br />
+            </p>
+          </div>
+          <div>
+            <label for="email"> Email : </label>
+            <input type="email" name="email" />
+            <button class=" ">subscribe</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let menu = document.getElementById("menu-div");
+      let nav = document.querySelector(".nav-list");
+      let cross = document.getElementById("cross");
+      let navtag = document.querySelector("nav");
+      menu.addEventListener("click", () => {
+        nav.style.display = "block";
+        menu.style.display = "none";
+        cross.style.display = "block";
+        navtag.style.display = "flex";
+      });
+      cross.addEventListener("click", () => {
+        nav.style.display = "none";
+        menu.style.display = "flex";
+        cross.style.display = "none";
+        navtag.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+body {
+  background: linear-gradient(90deg, orange, white, green) center center/cover;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+/*navbar styling */
+header {
+  display: flex; /*do ul element in tne center*/
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 3;
+}
+header::before {
+  content: ""; /*set background of header navbar*/
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  display: block;
+}
+ul {
+  display: flex;
+  list-style: none;
+  position: relative;
+  top: 8px;
+  align-self: center;
+  justify-content: center;
+  /*list remove the list bullet points and li direction to row */
+}
+li.item {
+  transition: 200ms linear;
+  /*the transition timming*/
+}
+li.item:hover a {
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 13px;
+}
+li.item a {
+  text-decoration: none;
+  margin: 30px;
+  color: whitesmoke;
+  font-size: large;
+  /*remove the underline give color black and margin btw li,a tags*/
+}
+h1 {
+  text-align: center;
+  margin: 100px 50px 50px 50px;
+  color: orange;
+  font-size: 2.2rem;
+
+  /*set the heading to the center and color orange*/
+}
+div.places {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  position: relative;
+  top: 30px;
+  grid-gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  bottom: 80px;
+  /* made a grid and arrange 9 div in it with images */
+}
+div.box {
+  width: 300px;
+  height: 280px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.5);
+  transition: 300ms ease-in;
+  /*the size of the box which has img of palaces and p tag*/
+}
+div.box:hover {
+  transform: scale(1.1, 1.1);
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.5),
+    5px 5px 50px rgba(0, 0, 0, 0.4) inset;
+}
+div.places div.box img {
+  width: 300px;
+  height: 200px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  /*img radius and size of it */
+}
+div.box > p {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 1.1rem;
+  margin: 5px;
+  /*center the p tag and change the font-size*/
+}
+/* audio*/
+#div_audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 20px;
+  top: 20px;
+  margin: 30px;
+}
+audio {
+  width: 50%;
+}
+/*footer*/
+footer {
+  display: flex;
+  position: relative;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 10px;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  /*set the background color and position inner elements*/
+}
+footer a {
+  text-decoration: none;
+  color: white;
+  margin: 40px;
+  font-size: 1.4rem;
+  text-align: center;
+  /*remove the under line and color them black */
+}
+
+@media (max-width: 1100px) {
+  div.places {
+    grid-template-columns: auto auto;
+  }
+  div.box {
+    width: 250px;
+    height: 230px;
+  }
+  div.places div.box img {
+    width: 250px;
+    height: 170px;
+  }
+}
+@media (max-width: 700px) {
+  body {
+    font-size: 1.1rem;
+  }
+  li.item a {
+    margin: 15px;
+  }
+  div.places {
+    grid-template-columns: auto;
+  }
+}
+
+/* to make website responsive i added  media queries*/

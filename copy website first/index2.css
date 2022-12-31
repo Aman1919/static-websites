@@ -1,0 +1,597 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900");
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0px;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-family: raleway,sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+::selection{
+    background-color: #ff589E;
+    color: white;
+}
+
+div#welcome{
+    background: url("banner-bg.png") no-repeat center center/cover;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+/*header /nav styling starts here*/
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 0px;
+    max-height: 10rem;
+    z-index: 100;
+padding: 4rem 3rem 0px;
+
+}
+li{
+    font-size: 1.6rem;
+    font-weight: 500;
+    list-style: none;}
+    a{
+        text-decoration: none;
+        color: #645f5f;
+    
+    }
+div.menu{
+display: none;
+}
+div.menu div{
+    width: 35px;
+    height: 2px;
+    background-color: #0000007e;
+    margin: .8rem 0px;
+    position: relative;
+}
+
+nav#main-nav{
+    display: flex;
+align-items: center;
+gap: 5rem;
+max-width: 100%;
+background-color: white;
+padding: 2rem;
+border-radius: 4rem;
+position: relative;
+}
+ul{
+    display: flex;
+    align-items: center;
+gap: 2rem
+;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+nav li a:hover{
+    color: #ff589E;
+}
+nav li a:activeS{
+    color: #ff589E;
+}
+/*header /nav styling ends here*/
+
+div.header-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position:absolute;
+    top:40% ;
+    width: 100%;
+}
+div.row{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    gap: 20px
+    
+    ;
+    position: relative;
+    flex-wrap: wrap;
+    
+}
+div.row h1{
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 500;
+    width: 70%;
+}
+
+div.row p{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight:400;
+}
+
+div.row button{
+    background-color: #ff589E;
+    color: #ffffff;
+    padding: 1.2rem 2rem;
+    border-radius: 1.9rem;
+    border: none;
+
+}
+
+/*styling home feature section starts here*/
+section.home-feature{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+top: -15rem;
+}
+div.row2{
+    display: flex;
+    
+    align-items:center;
+    justify-content: center;
+    gap: 4rem
+    ;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+div.section{
+    background-color:white;
+    max-width: 35rem;
+    height: 30rem;
+display: flex;
+align-items: center;
+flex-direction: column;
+gap: 2rem
+;
+padding:4rem;
+box-shadow: 0px 0px 3rem rgba(0, 0, 0, 0.223);
+border-radius: 2rem;
+}
+div.section img{
+    width: 10rem;
+    background: #8865EE;
+    padding: .4rem;
+    border-radius: 49%;
+    margin-bottom: 2rem;
+}
+div.section h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+div.section p{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 350;
+    color: #645f5f;
+    line-height: 2rem;
+}
+div.section:hover img{
+    background: #ff589E;
+}
+
+
+/*styling about section starts here*/
+section#about-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem 25rem;
+    gap: 15rem;
+}
+div.row3{
+    display: flex;
+    gap:7rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+div.row3 img{
+width: auto;
+
+}
+div.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+
+}
+    
+div.about h3{
+text-align: left;
+font-size: 2.4rem;
+font-weight: 500;
+line-height: 3rem;
+}
+div.about p{
+line-height: 3rem;
+font-size: 1.6rem;
+font-weight: 400;
+color: #777777;
+}
+
+/*styling work process starts here8*/
+
+section.workprocess{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-bg.png") no-repeat center center/cover;
+    padding: 10rem;
+}
+div.allworkdiv{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div.work-div{
+
+    background-color: white;
+    color:black
+    ;
+    padding: 4rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 3rem;
+    box-shadow: 1rem 1rem .2rem #aa94ed7e;
+    transition: 500ms;
+}
+div.work-div:hover{
+transform: translateY(-1.5rem);
+
+}
+div.work-div img{
+    width: 3.2rem;
+}
+div.work-div h3{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+div.work-div p{
+    color:#777777
+    ;
+    font-size: 1.4rem;
+}
+div.row4{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+}
+div.row4 h2{
+    font-size: 2.8rem;
+    color: white;
+    font-weight: 500;
+}
+div.row4 h4{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 400;
+}
+/*testimonials styling starts here*/
+section.testimonials{
+    padding: 10rem;
+    background-color: whitesmoke;
+}
+div.row5{
+    display: flex;
+    width: 100%;
+    flex-direction: column;align-items: center;
+    gap: 4rem;
+    justify-content: center;
+}
+div.row5 h1{
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+div.row5 h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #777777;
+}
+div.all-feedbacks{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+div.feedback{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 4rem;
+    gap: 2.8rem;
+    box-shadow: 0px 0px 4rem rgba(0, 0, 0, 0.203);
+    max-width: 35rem;
+    line-height:2.5rem;
+    border-radius: 2rem;
+}
+div.feedback p{
+    font-size: 1.5rem;
+    color: #777777;
+}
+div.feedback h2{
+    font-size: 1.7rem;
+    font-weight: 500;
+    transition:500ms ease-out;
+}
+div.feedback h2:hover{
+transform:translateX(15px);
+}
+div.feedback h2 span{
+    color: #ff589E;
+}
+/*pricing tabel starts*/
+section.pricing{
+    background: #f2f2fe;
+    padding: 10rem 0rem;
+}
+div.single-pricing h1{
+background-color: #8865EE;
+color: white;
+border-radius: 2rem;
+padding: 2rem 7rem;
+}
+
+div.single-pricing h1.premium{
+    background-color: #ff589E;
+}
+div.single-pricing ul{
+    display: flex;
+    flex-direction: column;
+    color: #777777;
+    gap: .5rem;
+
+}
+div.single-pricing ul li{
+    font-size: 1.3rem;
+}
+div.single-pricing ul li.line-cut{
+text-decoration: line-through;}
+
+div.single-pricing button{
+    background-color: #8865EE;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    padding: 1.3rem;
+}
+
+div.single-pricing button:hover{
+background-color: #ff589E;
+}
+
+/*styling awards section starts here*/
+section.awards{
+    display: flex;
+justify-content: center;
+align-items: center;
+padding: 12rem 10rem;
+background: url("https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/fun-facts-bg.png") no-repeat center center/cover
+;
+width: 100%;
+f
+}
+div.award-div{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+width: 100%;
+color: white;
+text-align: center;
+transition: 500ms ease-out;
+}
+
+div.award-div strong{
+font-size: 3.6rem;
+}
+div.award-div span{
+font-size: 1.7rem;
+}
+div.award-div:hover{
+    transform: translateY(-10px);
+}
+
+/*styling blog section starts here*/
+section.blog{
+    padding: 10rem 2rem;
+}
+
+div.all-feedbacks div.single-blog{
+    text-align: center;
+    padding: 0px 4rem 3rem 4rem;
+    box-shadow: none;
+}
+div.all-feedbacks div.single-blog img{
+max-width: 37rem;
+top: 0px;
+position: relative;
+}
+div.all-feedbacks div.single-blog button{
+color: white;
+background-color: #8865EE;
+border: none;
+padding: 1.3rem;
+border-radius: 2rem;
+}
+
+div.all-feedbacks div.single-blog button:hover{
+background-color: #ff589E;
+}
+
+/*styling contact form starts here*/
+section.contact{
+    background-color: #f2f2fe;
+    padding: 10rem ;
+    text-align: center;
+}
+div.form-n-caption{
+    display: flex;
+}
+div.touch{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 8rem;
+    gap: 2rem
+    ;
+}
+
+div.touch h2{
+font-size: 1.8rem;
+font-weight: 500;
+
+}
+div.touch p{
+    color: #777777;
+font-size: 1.4rem;
+margin-right: 2.8rem;
+line-height: 2.2rem;
+
+}
+
+input,textarea{
+
+border: none;
+outline: none;
+padding: 1rem 2.5rem;
+font-size: 1.6rem;
+border-radius: 2rem;
+width: 100%;}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+    padding: 4rem 10rem;
+    justify-content:center ;
+}
+input{
+    margin: 0pc 1rem;
+}
+form div{
+    display: flex;
+    width: 100%;
+}
+form button{
+    padding: 1.2rem 3rem;
+border-radius: 2rem;
+border: none;
+background-color: #8865EE;
+color: white;
+}
+form button:hover{
+
+background-color: #ff589E;}
+
+
+/*styling footer here*/
+
+footer{
+    background-color: #8865EE;
+    padding: 10rem 20rem 3rem;
+}
+footer p{
+    font-size: 1.3rem
+    ;border-top:1px solid #f7f2f24a;
+    color: white;
+    text-align: center;
+    padding: 3rem 0rem .5rem;
+
+}
+
+
+/*maKing website responsive*/
+
+
+@media screen and (max-width:1330px) {
+html{
+    font-size: 8.7px;
+}
+}
+
+@media screen and (max-width:1090px) {
+    html{
+        font-size: 7.7px;
+    }
+    } 
+
+
+
+    @media screen and (max-width:848px) {
+        div.row3{
+            flex-wrap: wrap;
+        }
+
+        header nav ul{
+display: none;
+
+        }
+        nav#main-nav{
+            gap: 35rem;
+        }
+        div.menu{
+            display: inline;
+        }
+nav:hover ul{
+display: flex;
+flex-direction: column;
+position: absolute; 
+background-color: white;
+width: 100%;
+top:4.5rem;
+right:.2rem;
+border-bottom-left-radius: 4rem;
+border-bottom-right-radius: 4rem;
+gap: 3rem;
+padding: 2rem 0px;
+z-index: -1;
+}
+nav:hover ul li{
+    background-color: white;
+display: block;
+}
+
+nav:hover ul li {
+
+}
+     
+
+div.form-n-caption{
+flex-direction: column;}
+
+form div{
+flex-direction: column;
+align-items: center;
+gap: 2rem
+;}
+section.contact{
+padding: 5rem;}
+
+
+
+}
+        
+    

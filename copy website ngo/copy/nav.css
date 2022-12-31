@@ -1,0 +1,637 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400&family=Roboto:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+margin: 0%;
+padding: 0;}
+html{
+  font-size: 10px;
+
+}
+body{
+    font-family: roboto slab,sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #555555;
+    padding: 0 1.9rem;
+    font-size: 1.6rem;
+
+    font-weight: 500;
+}
+
+
+.greenheader{
+  background-color: #84c340;
+  color: #ffffff;
+  padding: .5rem 0;
+  display: flex;
+  width: 100%;
+  
+  z-index: 10001;
+}
+.greenheader p{
+  font-size: 1.3rem;
+  margin-left: 3rem;
+}
+
+/* header styling starts here */
+header{
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+    border-bottom: 1px solid #5555555b;
+}
+div.contanier{
+display: flex;
+justify-content: space-between;
+margin: 0 auto;
+max-width: 100%;
+align-items: center;
+padding: 1rem 0;
+max-width: 90%;
+}
+nav ul{
+    display: flex;
+    padding: 0;
+    align-items: center;
+}
+nav li{position: relative;}
+
+nav a{
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    padding: .9rem 1.9rem 1rem  0rem;
+    margin-left:.8rem ;
+  white-space: nowrap;
+  transition: 0.2s;
+  }
+  
+  nav a:hover,nav a:focus,nav li:hover>a{
+    color: #84c340;
+}
+
+nav a span{
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    margin-left: 5px;
+font-weight: 300;
+}
+ul.drop-list{
+    display: block;
+    position: absolute;
+    left: .5rem;
+    top: calc(100%+9px);
+    color: #555555;
+background-color: #ffffff;
+box-shadow:0px 0px 20px  rgba(0, 0, 0, 0.418);
+border-top: #84c340 3px solid;
+opacity: 0;
+visibility: hidden;
+width: 10rem;
+}
+ul.drop-list li{
+border-top: .5px solid #55555542;
+text-align: left;
+}
+
+ul.drop-list li a{
+    font-size: 1.3rem;
+
+}
+
+ul.drop-list li:first-child{
+border-top: none;
+}
+
+nav li.dropdown:hover ul.drop-list{
+    opacity: 1;
+    visibility: visible;
+}
+
+div.menu{
+    display:none;
+  z-index: 10000;
+  flex-direction: column;
+  gap: 5px;
+  transform: .5s;
+  cursor: pointer;
+  margin: 3rem 4rem ;
+  position: absolute;
+right: 10px;
+
+}
+  div#cross
+  {
+    display: none;
+  }
+  div#cross strong
+  {
+  color:#444444;
+  font-size: 2rem;
+  }
+  div.line{
+  width: 20px;
+  height: 2px;
+  background-color:#555555;
+  border-radius: 5px;
+  }
+
+  /* mobile navigation */
+
+  @media screen and (max-width:700px){
+    div.menu{
+        display: flex;
+    }
+    
+    nav{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0px;
+      transition: 0.3s;
+      z-index: 999;
+      }
+      nav ul.nav-list{
+        display: none;
+        position: absolute;
+        inset: 0px 0 0 20%;
+        padding: 10px 0;
+        border-top-left-radius: 10px;
+        background-color:#a19c9c46;
+        padding: min(30vh,8rem) 2rem;
+        overflow-y: auto;
+        transform: translateX(100%);
+        backdrop-filter: blur(1rem);
+        transition:transform 0.2s ease-in;
+        animation: navlinkfade 0.7s ease forwards 50ms;
+
+      }
+
+      @keyframes navlinkfade{
+        from{
+          opacity: 0;
+          transform: translateX(500px);
+        }
+        to{
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+ul.drop-list{
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    margin: 10px 20px;
+padding: 10px 0;
+z-index: 99;
+
+}
+nav li.dropdown:hover ul{
+    display: block;}
+
+nav li.dropdown:hover ul{
+min-width: 200px;
+}
+  }
+
+
+ /* hero styling section */
+
+ section.hero{
+    width: 100%
+    ;padding: 3rem  2rem;
+    background-color:#B3B3B3;
+    color: #ffffff;
+    min-height: 95vh;
+    display: flex;
+align-content: center;
+z-index: -1;
+}
+
+ section.hero .contanier{
+ justify-content: space-around;
+ padding-inline: 8rem;
+ max-width: 100%;
+ flex-wrap: wrap;
+}
+
+section.hero h1{
+font-size: clamp(3.6rem,4vw,5.8rem);
+line-height: 5rem;
+font-weight: 500;
+}
+section.hero p{
+font-size: 22px;
+line-height: 3rem;
+font-weight: 400;
+
+margin-top: 2rem;}
+
+
+
+/* welcome sdection starts here 
+ */
+section.welcome{
+  width: 100%;
+}
+ section.welcome .contanier{
+flex-direction: column;
+gap: 2rem;
+margin: 2rem auto;
+min-height: 100%;;
+max-width: 100%;
+ }
+
+ div.row-div{
+  display: flex;
+  justify-content: left;
+  max-width: 100%;
+  flex-wrap: wrap;
+ }
+
+ div.row-div img{
+width: 300px;
+ }
+ div.row-div div{
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+
+ }
+
+.welcome .contanier>p{
+font-weight: 400;
+font-size: 1.5rem;
+color: #60606083;
+max-width: 100%;
+
+ }
+
+ .welcome h1{
+font-size: clamp(3.6rem,2vw,2rem);
+  
+  font-weight: 600;
+  color: #292929;
+  text-align: center;
+  
+ }
+ .welcome h3{
+  font-size: 22px;
+  color: #292929;
+  font-weight: 600;
+  text-align: center;
+  margin: 2rem 0 1rem;
+ }
+ .welcome p{
+font-size: 13px;
+text-align: center;
+color: #606060;
+padding:  0 1rem;
+font-weight: 500;
+max-width: 350px;
+}
+
+/* inspiration section styling 
+*/
+
+section.inspiration{
+  background-color: #B3B3B3;
+  color: #ffffff;
+display: grid;
+place-content: center;
+width: 100%;
+}
+.typo-div h1{
+font-size: clamp(4rem,4.5vw,5.8rem);
+  margin-block: 2rem
+  ;
+  text-align: center;
+}
+.inspiration p{
+  font-size: clamp(1.5rem,2.2vw,2rem);
+  text-align: left;
+  max-width: 450px;
+  margin-left: 2rem;
+
+}
+.inspiration div.typo-div{
+  max-width: min(90%,200vw);
+}
+
+section.inspiration .contanier{
+padding: 8rem 6rem;
+justify-content: space-around;
+}
+
+/* styling contact section
+ */
+
+ form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(550px,150vw);
+ }
+ input,textarea{
+  outline: none;
+  border: .5px solid #55555521;
+  padding: 2rem 1rem;
+  width: 100%;
+  align-self: center;
+ }
+ input:focus,textarea:focus{
+ 
+border: .5px solid #84c340;}
+.contact{
+max-width: 100%;
+position: relative;
+width: 100%;
+}
+
+ .contact .contanier{
+justify-content: center;
+margin: 7rem auto;
+gap: 5rem
+;
+flex-wrap: wrap;
+} 
+.contact h1{
+font-size: 3.5rem;
+}
+
+.contact .row-div{
+justify-content: center;
+}
+
+.contact .typo-div{
+margin-inline: 5rem;
+width: 50%;
+width: min(550px,150vw);
+align-self: center;
+
+}
+.contact ul{
+  flex-direction: column;
+  list-style:disc;
+  color: #555555;
+  padding-left: 2rem;
+}
+.contact li{
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 3rem;
+  margin-bottom: 1.5rem;
+
+}
+  button{
+  background-color: #84c340;
+  border: none;
+  color: #ffffff;
+padding: 1.1rem 1.5rem;
+text-transform: uppercase;
+width: 90%;
+align-self: center;
+font-weight: 600;
+margin-top: 1rem;
+}
+
+
+/* clients section styling
+ */
+ section.clients div.contanier{
+  padding: 7rem 8rem;
+  gap: 4rem;
+ }
+ .clients p{
+font-size: 1.6rem;
+ }
+.clients h4{
+  font-size: 13px;
+text-align: center;
+font-weight: 500;
+color: #84c340;
+margin: 2rem 0;
+}
+.clients span{
+  color:black;
+  font-size: 10px;
+}
+
+
+/* green-div */
+div.green-div h1{
+color: #ffffff;
+background-color: #84c340;
+font-size: 2.8rem;
+text-align: center;
+padding: 3.5rem 0;
+}
+
+/* gallery styling starts here 
+ */
+ section.gallery .row-div{
+  justify-content: center;
+  gap: .1rem;
+  padding: 2rem;
+ }
+ section.gallery .contanier{
+  padding: 5rem 6rem;
+ } 
+ section.gallery .contanier p{
+  font-size: 15px;
+ }
+
+ /* stay connected section 
+  */
+  .connect{
+    background-color: #b3b3b3;
+    text-align: left;
+color: #ffffff;
+  }
+.connect .contanier{
+padding-block: 10rem;
+flex-wrap: wrap;
+justify-content: center;
+gap: 3rem;
+}
+
+.connect .typo-div h1{
+  margin: 2rem 0;
+  text-align: left;
+font-size: clamp(3.6rem,4vw,5.8rem);
+font-weight: 600;}
+
+
+  .connect p{
+    font-size: 18px;
+    font-weight:500;
+    max-width: 600px;
+  }
+  .connect img{
+    max-width: 100px;
+    margin: 0 14rem 12rem 0;
+  }
+
+
+
+  /* important section starts here
+   */
+
+   section.imp .contanier{
+flex-direction: column;
+    display: flex;
+padding-block: 5rem;
+max-width: 100%;
+  }
+   section.imp{
+    width: 100%;
+   }
+   
+   .imp .row-div{
+    justify-content: left;
+
+   }
+   .imp .row-div div{
+    max-width: 350px;
+    padding: 0;
+    margin: 2rem;
+    color: #b3b3b3;
+    
+   }
+
+  .imp .contanier>p{
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #60606083;
+    max-width: 100%;
+    
+     }
+    .imp h1,h3,p{
+      text-align: center;
+    }
+     .imp h1{
+    font-size: clamp(3.6rem,2vw,2rem);
+      margin-block: 2rem;
+      font-weight: 600;
+      color: #292929;
+      
+     }
+     .imp h3{
+      font-size: 22px;
+      color: #292929;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+     }
+     .imp p{
+    font-size: 13px;
+    color: #606060;
+    padding:  0rem;
+    font-weight: 500;
+    max-width: 300px;
+    }
+  /* footer styling starts here 
+   */
+   footer{
+    background-color: #f5f5f5;
+    width: 100%;
+    position: relative;
+    
+   }
+   footer input{
+padding: 1rem 1rem;
+margin-block: 1rem;   }
+
+footer button{
+  background-color: #212125;
+  transition: 0.2s;
+}
+footer button:hover{
+background-color: #84c340;
+}
+   footer .contanier{
+    justify-content: space-around;
+    padding: 5rem 0;
+    
+    max-width: 100%;
+  }
+  footer .row-div div{
+display: block;
+  }
+  footer label{
+    font-size: 1.4rem;
+  }
+   footer h4{
+font-size: 1.4rem;
+font-weight:600;
+padding-left: 2rem;
+margin-block: 2rem;
+border-left: 3px solid #84c340;
+   }
+   footer p{
+    font-size: 1.5rem
+    ;
+    font-weight: 500;
+    color: #555555;
+   }
+
+
+   /* responsive design 
+    */
+   @media screen and (max-width:900px){
+    html{
+      font-size: 9px;
+    }
+    footer .contanier,section.imp .contanier{
+      justify-content: left;
+      
+    }
+     .row-div{
+      flex-direction: column;
+    }
+
+    section.imp  .row-div{
+      justify-content: left;
+    } 
+    .imp h1,h3,p{
+      text-align: left;
+    }
+   }
+
+
+
+
+   /* sub-header in multi-pages */
+   div.sub-header{
+    display: flex;
+    min-height: 100px;
+    background-color:#F5F5F5;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 5rem;
+    gap: 1rem;
+    width: 100%;flex-wrap: wrap;
+   }
+   .sub-header p{
+font-size: 2.4rem;
+font-weight: 400;
+line-height: 1.4rem;
+color: #555555;
+   }
+   .sub-header span{
+font-size: 15px;
+font-weight: 400;
+color: #555555;
+   }
+
+
+   

@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/*styling nav bar starts here*/
+nav{
+  display: flex;
+  justify-content: start;
+  align-self: center;
+  padding: 15px;
+  width: 100%;
+  background-color:#252424;
+  position: fixed;
+}
+nav ul{
+  display: flex;
+list-style: none;
+gap: 30px;
+}
+nav ul a{
+  text-decoration: none;
+  color:rgba(245, 245, 245, 0.801);
+}
+
+/*styling first section starts here*/
+section#first{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  gap: 50px;
+  background: url("pexels-freestocksorg-96380.jpg") no-repeat center center/cover;
+  z-index: -1;
+  color: rgba(255, 255, 255, 0.872);
+  padding: 100px;
+  text-align: center;
+  scroll-behavior: smooth;
+font-size: 1.2rem;
+}
+section#first h1{
+  font-size: 50px;
+
+}
+
+
+
+
+  /*first section ends here*/
+
+  /*styling music section starts here*/
+  section#music{
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding:20px 100px;
+     gap: 20px
+     ;
+     font-size: 1.2rem;
+     background-color:#323232;
+     color: white;
+     text-align: center;
+  }
+  section#music img{
+    max-width: 70%;
+    height: auto;
+  }
+
+  section#music button{
+    padding: 10px 20px;
+    background-color: crimson;
+    color: white;
+    border: none;
+  }
+
+  section#second{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #323233;
+    gap: 20px;
+    padding: 25px;
+    text-align: center;
+    padding: 20px 100px;
+  }
+  section#second button{
+    padding: 10px 20px;
+    background-color: rgb(14, 92, 187);
+    color: white;
+    border: none;
+  }
+
+  section#second img{
+    max-width: 100%;
+    height: auto;
+  
+  }
+
+  section#second p{
+  padding: 25px;
+  font-size: 1.1rem;
+
+  }
+
+  /*star section starts here */
+  section#star-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 100px;
+    gap: 40px;
+    background: url("pexels-rakicevic-nenad-1274260.jpg") no-repeat center center/cover;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+  }
+  section#star-section p{
+    padding: 20px;
+    font-size: 1.1rem;
+  }
+
+  /*gift card section starts here*/
+  section#gift-card{
+    display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+padding: 20px 100px;
+  }
+  section#gift-card img{
+    max-width: 500px;
+    height: auto;
+  }
+  div#gift-card-div{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  /*footer section starts here*/
+  section#footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px 100px;
+    background-color: #323232;
+    color: white;
+  
+  }
+  a
+  {text-decoration: none;
+  color: rgba(255, 255, 255, 0.847);
+font-weight: 100;
+padding: 3px;
+}
+div.footer-section p{
+  border-bottom:1px solid rgba(255, 255, 255, 0.299) ;
+  font-size: 1.125rem;
+  padding: 5px;
+  width:150px;
+
+}
+  div.footer-section{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  section#copyright{
+    text-align: center;
+    padding: 15px;
+    background-color:#252424 ;
+    color: whitesmoke;
+  }
