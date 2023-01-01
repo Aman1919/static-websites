@@ -1,0 +1,88 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    font-family: sans-serif;
+    background-color:rgb(68, 66, 66) ;
+overflow-x: hidden;
+color: white;
+}
+.header{
+    text-align: center;
+    margin: 1rem;
+}
+#contanier{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#start{
+    width: 200px;
+    
+    padding: .4rem .8rem;
+    background-color: rgb(78, 78, 78);
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.174);
+}
+
+#start:hover,#start:active,.key:hover{
+    background-color: rgba(78, 78, 78, 0.216);
+    border: 1px solid rgba(255, 255, 255, 0.36);
+
+}
+
+#canvas{
+    
+background-color: rgba(255, 255, 255, 0.626);
+color:black;
+width: 100vw;
+height:min(82vw,30rem);
+position: relative;
+}
+
+#controls div{
+position: relative;
+left: -32px;
+}
+.key{
+    background-color: rgba(78, 78, 78, 0.216);
+    border: 1px solid white;
+    color: white;
+padding: .5rem;
+font-size: 25px;
+border-radius: 20px;
+width: 50px;
+}
+#controls div .key{
+margin:  0 .2rem ;
+}
+.snake-div{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+background-color: rgb(143, 143, 26);
+border-radius: 50%;
+}
+#snake{
+    position:relative;
+    top: 60px;
+    left: 100px;
+    display: inline-block;
+    background-color: red;
+    transition: all 1000ms linear infinite;
+}
+#food{
+border-radius: 50%;
+position: absolute;
+top: 200px;
+left: 500px;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
+
