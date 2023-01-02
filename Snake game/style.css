@@ -7,10 +7,15 @@ body{
     background-color:rgb(68, 66, 66) ;
 overflow-x: hidden;
 color: white;
+z-index: 1;
 }
-.header{
+h1.header,p{
     text-align: center;
     margin: 1rem;
+
+}
+div.header{
+    margin-bottom: 1rem;
 }
 #contanier{
     width: 100%;
@@ -36,12 +41,13 @@ color: white;
 }
 
 #canvas{
-    
+    width: 100%;
 background-color: rgba(255, 255, 255, 0.626);
 color:black;
 width: 100vw;
 height:min(82vw,30rem);
 position: relative;
+z-index: 2;
 }
 
 #controls div{
@@ -61,25 +67,23 @@ width: 50px;
 margin:  0 .2rem ;
 }
 .snake-div{
-    position: absolute;
     width: 40px;
     height: 40px;
 background-color: rgb(143, 143, 26);
 border-radius: 50%;
+display: inline-block;
+text-align: center;
 }
 #snake{
-    position:relative;
-    top: 60px;
+    position:absolute;
     left: 100px;
-    display: inline-block;
-    background-color: red;
+    top: 0px;
     transition: all 1000ms linear infinite;
+    z-index: -1;
 }
 #food{
 border-radius: 50%;
 position: absolute;
-top: 200px;
-left: 500px;
     width: 40px;
     height: 40px;
     background-color: red;

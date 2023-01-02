@@ -9,8 +9,11 @@
   </head>
   <body>
     <div id="contanier">
-      <h1 class="header">Snake Game</h1>
-      <button id="start" onclick="start()">Start Game</button>
+      <div class="header">
+        <h1 class="header">Snake Game</h1>
+        <button id="start" onclick="start()">Start Game</button>
+        <p>Score : <span id="score">0</span></p>
+      </div>
       <div id="canvas" onmouseover="">
         <div id="snake" onmouseover="">
           <div class="snake-div"></div>
@@ -18,12 +21,12 @@
         <div id="food" onmouseover=""></div>
       </div>
       <div id="controls">
-        <button id="up" class="key">&#9650;</button>
+        <button id="up" class="key" onclick="up()">&#9650;</button>
         <div>
-          <button id="left" class="key">&#5130;</button>
-          <button id="right" class="key">&#5125;</button>
+          <button id="left" onclick="left()" class="key">&#5130;</button>
+          <button id="right" class="key" onclick="right()">&#5125;</button>
         </div>
-        <button id="down" class="key">&#9660;</button>
+        <button id="down" class="key" onclick="down()">&#9660;</button>
       </div>
     </div>
     <script src="app.js"></script>
