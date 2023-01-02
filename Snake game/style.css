@@ -49,9 +49,7 @@ height:min(82vw,30rem);
 position: relative;
 z-index: 2;
 }
-#controls{
-    margin: 1rem;
-}
+
 #controls div{
 position: relative;
 left: -32px;
