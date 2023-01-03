@@ -6,6 +6,8 @@ let rect = canvas.getBoundingClientRect(); //for canvas coordinates
 let direction = "right";
 let b = snakecon.getBoundingClientRect();
 let score = document.getElementById("score");
+let snake_div = document.querySelector(".snake-div");
+
 let s = 0;
 let time = 50;
 window.addEventListener("resize", () => {
@@ -35,18 +37,19 @@ function move() {
   if (y_coor < rect.top - y) {
     y_coor = rect.height - 40;
   }
+
   switch (direction) {
     case "left":
-      snakecon.style.left = x_coor - 3 + "px";
+      snake_div[0].style.left = x_coor - 3 + "px";
       break;
     case "up":
-      snakecon.style.top = y_coor - 3 + "px";
+      snake_div[0].style.top = y_coor - 3 + "px";
       break;
     case "right":
-      snakecon.style.left = x_coor + 3 + "px";
+      snake_div[0].style.left = x_coor + 3 + "px";
       break;
     case "down":
-      snakecon.style.top = y_coor + 3 + "px";
+      snake_div[0].style.top = y_coor + 3 + "px";
       break;
   }
 }
@@ -81,7 +84,7 @@ function up() {
 function down() {
   direction = "down";
 }
-let c = snakecon[0].getBoundingClientRect();
+let c = snake_div[0].getBoundingClientRect();
 
 function check(f_rect, c) {
   if (isCollide(f_rect, c)) {
