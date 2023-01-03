@@ -1,6 +1,8 @@
 # static-websites
 These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
  
+ to do list - https://aman1919.github.io/static-websites/To%20do%20list/index.html
+ 
  Snake Game - https://aman1919.github.io/static-websites/Snake%20game/index.html
  
 copy music website - https://aman1919.github.io/static-websites/copy%20%20music%20website/indexj.html
