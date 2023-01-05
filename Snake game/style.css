@@ -43,11 +43,11 @@ div.header{
 #canvas{
     width: 100%;
 background-color: rgba(255, 255, 255, 0.626);
-color:black;
 width: 100vw;
 height:min(82vw,30rem);
-position: relative;
-z-index: 2;
+display: grid;
+grid-template-columns: repeat(21,1fr);
+grid-template-rows: repeat(21,1fr);
 }
 
 #controls div{
@@ -67,26 +67,17 @@ width: 50px;
 margin:  0 .2rem ;
 }
 .snake-div{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 background-color: rgb(143, 143, 26);
-border-radius: 50%;
-display: inline-block;
-text-align: center;
+border: 3px solid black;
 }
-#snake{
-    position:absolute;
-    left: 100px;
-    top: 0px;
-    transition: all 1000ms linear infinite;
-    z-index: -1;
-}
-#food{
-border-radius: 50%;
-position: absolute;
-    width: 40px;
-    height: 40px;
+.food{
+    width: 35px;
+    height: 35px;
     background-color: red;
+border: 3px solid black;
+
 }
 
 
