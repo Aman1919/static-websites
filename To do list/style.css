@@ -6,8 +6,10 @@
 
 .header {
     text-align: center;
-    margin: 1rem;
-
+background-color: black;
+padding: 1rem;
+margin-bottom: 1rem;
+color: white;
 }
 
 .contanier {
@@ -16,22 +18,23 @@
 
 .content {
     max-width: 600px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.714);
     margin: 0 auto;
     padding: 2rem 0;
 border-radius: 20px;
-
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
 
 .content div {
-    width: 80%;
     margin: .5rem auto;
 }
 
 input {
-    max-width: 300px;
     padding: .4rem;
-    min-height: 30px;
+    min-height: 35px;
     border: 1px solid rgba(0, 0, 0, 0.14);
     border-radius: 10px;
     margin: .5rem;
@@ -40,9 +43,11 @@ input {
 button {
     min-height: 30px;
     max-height: 35px;
-    padding: .4rem;
+    padding: .4rem 0.6rem;
     border-radius: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.447);
+    border: 2px solid rgba(255, 246, 246, 0.468);
+    background-color: rgba(0, 0, 0, 0.638);
+    color: white;
     align-self: center;
 }
 
@@ -58,12 +63,19 @@ button:hover {
 
 .list {
     margin: 1rem auto;
-    background-color: antiquewhite;
+    background-color: rgba(255, 255, 255, 0.652);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 300px;
+    padding:.5rem 2rem;
 border-radius: 20px;
+min-width: 300px;
+margin: 0 1rem;
+}
+.list input{
+    min-height: 40px;
+    background-color: rgba(255, 255, 255, 0.556);
 }
 h2{
     background: white;
