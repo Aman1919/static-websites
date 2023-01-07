@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        font-family: sans-serif;
+      }
+      #contanier {
+        width: 100%;
+        display: grid;
+        place-content: center;
+      }
+      h1 {
+        text-align: center;
+      }
+      .main {
+        margin: auto;
+        background-color: rgb(128, 126, 126);
+        padding: 1rem;
+        border-radius: 20px;
+      }
+      input {
+        padding: 0.3rem;
+        margin: 0.5rem 0.3rem;
+        border-radius: 10px;
+      }
+      input:focus {
+        outline: 2px solid rgb(43, 167, 234);
+      }
+
+      button {
+        padding: 0.3rem;
+        background-color: rgba(49, 50, 50, 0.53);
+        color: white;
+        width: 50px;
+      }
+      .valueDiv {
+        display: flex;
+        padding: 0.5rem;
+        align-items: center;
+        gap: 1rem;
+      }
+      .numberDiv {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 1rem;
+        flex-wrap: wrap;
+        background-color: rgba(49, 50, 50, 0.53);
+        text-align: center;
+        gap: 0rem;
+        max-width: 350px;
+        height: 200px;
+        gap: 0.5rem;
+      }
+      .operationDiv {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        padding: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.416);
+        gap: 0.5rem;
+      }
+      .numkey {
+        background-color: rgb(48, 47, 47);
+        color: white;
+        padding-top: 0.35rem;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.551);
+      }
+      .numkey:hover,
+      .numkey:active {
+        background-color: rgba(0, 0, 0, 0.327);
+        border: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="contanier"></div>
+
+    <script src="calculator.js"></script>
+  </body>
+</html>
