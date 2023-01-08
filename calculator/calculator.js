@@ -6,27 +6,39 @@ const inpt = adder(CalculatorDiv, "input", "display", "");
 const equalTo = adder(CalculatorDiv, "button", "equal", "=");
 
 const innerDiv = adder(CalculatorDiv, "div", "valueDiv", "");
-
+let first;
+let second;
+let sign;
 const numberDiv = adder(innerDiv, "div", "numberDiv", "");
 const operations = adder(innerDiv, "div", "operationDiv", "");
 for (let i = 9; i >= 1; i--) {
   let a = adder(numberDiv, "input", "numkey");
-  a.setAttribute("value", i);
+  a.value = i;
   a.setAttribute("readonly", "true");
 }
 for (let o = 0; o < op.length; o++) {
-  adder(operations, "p", "numkey", op[o]);
+  let a = adder(operations, "input", "numkey", op[o]);
+  a.value = op[o];
+  a.setAttribute("readonly", "true");
 }
 console.log(equalTo);
-let num = document.querySelectorAll(".numberDiv .numkey");
+let num = document.querySelectorAll(" .numkey");
 
 equalTo.addEventListener("click", (e) => {
-  alert("fd");
+  let v = inpt.value;
+  inpt.value = eval(v);
+  //eval() this function evaluates the expression on the string
 });
 
 num.forEach((n) => {
   n.addEventListener("click", (e) => {
-    console.log(n.value);
+    first = n.value;
+    if (first == "C") {
+      inpt.value = "";
+      return;
+    }
+    inpt.value += first;
+    console.log(first);
   });
 });
 
