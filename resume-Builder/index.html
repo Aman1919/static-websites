@@ -11,64 +11,29 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-
-    <style>
-      .contanier {
-        display: grid;
-        place-content: center;
-      }
-      h1 {
-        text-align: center;
-      }
-      #form {
-        width: max(60vw, 500px);
-        background-color: rgb(74, 72, 72);
-        color: white;
-        padding: 0.6rem;
-      }
-      #onlyinpt {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        background-color: rgb(84, 90, 84);
-        padding-block: 0.7rem;
-        border-bottom: 2px solid black;
-      }
-      label {
-      }
-      input {
-        width: max(50%, 200px);
-      }
-      #multiinpt > div {
-        border-bottom: 2px solid black;
-        padding-bottom: 1rem;
-      }
-    </style>
   </head>
+  <style>
+    .resumeDiv {
+      max-width: max(65vw, 90vh);
+      margin: auto;
+    }
+    .req_inpt,
+    .workContanier .onework div {
+      width: 85%;
+      margin: auto;
+    }
+
+    .req_inpt {
+      gap: 0.3rem;
+      border-bottom: 2px solid rgb(233, 227, 227);
+    }
+    textarea {
+      display: block;
+    }
+  </style>
   <body>
-    <div class="contanier">
-      <h1 class="m-2">Resume Builder</h1>
-      <form action="" id="form">
-        <div id="onlyinpt"></div>
-        <div id="multiinpt">
-          <div id="work">
-            <div class="pt-2 d-flex justify-content-between mb-2">
-              <p>Work Experiences :</p>
-              <button class="add btn btn-warning">+</button>
-            </div>
-            <div id="allWork"></div>
-          </div>
-          <div id="education">
-            <div class="pt-2 d-flex justify-content-between mb-2">
-              <p>Education :</p>
-              <button class="add btn btn-warning">+</button>
-            </div>
-            <div id="alleducation"></div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <script src="app.js"></script>
+    <div id="root" class="contanier w-100"></div>
+
+    <script src="app.js" type="module"></script>
   </body>
 </html>
