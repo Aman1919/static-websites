@@ -1,6 +1,8 @@
 # static-websites
 These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
- 
+  
+ Resume Builder - https://aman1919.github.io/static-websites/resume-Builder/index.html 
+  
  Calculator - https://aman1919.github.io/static-websites/calculator/calculator.html
  
  to do list - https://aman1919.github.io/static-websites/To%20do%20list/index.html
