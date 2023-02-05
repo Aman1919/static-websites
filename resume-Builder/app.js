@@ -1,6 +1,7 @@
 import { requiredInputs, skillInpt } from "./inputs.js";
 import { work, workExprenience } from "./allwork.js";
 import projects from "./projects.js";
+import { data, EnterData } from "./data.js";
 let root = document.getElementById("root");
 window.onload = () => {
   let h1 = adder(
@@ -18,7 +19,7 @@ window.onload = () => {
   let downloadbtn = adder(
     "button",
     root,
-    "btn btn-dark m-2 p-2 ",
+    "btn btn-dark m-2 p-2 download ",
     "Download your Resume"
   );
   resumeDiv.append(
@@ -47,6 +48,7 @@ window.onload = () => {
       }
       let skills = document.querySelector(".skills");
       let p = adder("p", skills, "bg-primary p-2 m-2", inpt.value);
+      console.log(data);
       inpt.value = "";
     });
   });
@@ -57,6 +59,7 @@ window.onload = () => {
       a.removeChild(a.lastElementChild);
     });
   });
+  document.querySelector(".download").addEventListener("click", EnterData);
 };
 
 function adder(element, parentElement, clas, html) {
