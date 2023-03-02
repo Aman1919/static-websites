@@ -2,6 +2,8 @@
 
 These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
 
+Weather app -  https://aman1919.github.io/static-websites/weather/index.html
+
 Roman converter - https://aman1919.github.io/static-websites/roman/index.html
 
 Resume Builder - https://aman1919.github.io/static-websites/resume-Builder/index.html
