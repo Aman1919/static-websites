@@ -1,56 +1,101 @@
-/*
-1. problem when user clicked a button then we should   give a random response of rock, paper,scissors 
-2.when first one solved then we have to give result of the match and by adding by user response and computer response if user enter rock and randon generates paper then the user loses
-*/
+window.addEventListener("load", Main);
 
-let random = Math.floor(Math.random() * 3);
-const oparr = ["Rock", "Paper", "Scissors"];
-let rock = $("#rock");
-$("button").click((e) => {
-  //diplaying what the user selected
-  var userCl = e.target.name;
-  $("button").css("display", "none");
-  $("div#option").append("<h2></h2>");
-  $("div#option h2").text(userCl);
+function Main() {
+  const canvas = document.querySelector("canvas");
+  const context = canvas.getContext("2d");
+  canvas.width = 600;
+  canvas.height = 500;
+  canvas.style.background = "rgb(27,27,27)";
+  let RockImg = document.querySelector("#rock");
+  let ScissorsImg = document.querySelector("#scissors");
+  let PaperImg = document.querySelector("#paper");
+  const options = [RockImg, ScissorsImg, PaperImg];
+  Move(options[0], context, 10, 10);
+  Move(options[1], context, 10, 170);
+  Move(options[2], context, 10, 330);
+  canvas.addEventListener(
+    "click",
+    (event) => {
+      let g = canvas.getBoundingClientRect();
+      let userMove;
 
-  //creating h2 tag presenting random output
-  $(".com-div").append("<h2></h2>");
-  let comR = oparr[random];
-  $(".com-div h2").text(comR);
+      if (event.clientX - g.left >= 10 && event.clientX - g.left <= 100) {
+        if (event.clientY - g.top >= 10 && event.clientY - g.top < 151) {
+          userMove = 0;
+        } else if (
+          event.clientY - g.top >= 170 &&
+          event.clientY - g.top < 320
+        ) {
+          userMove = 1;
+        } else if (
+          event.clientY - g.top >= 330 &&
+          event.clientY - g.top < 480
+        ) {
+          userMove = 2;
+        }
+      }
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      let r = RandomMove();
+      CheckTheWinner(context, userMove, r);
+      Move(options[userMove], context, 50, canvas.height / 2 - 100);
 
-  //now deciding who will win
-  $("div.con").after("<p id='result'></p>");
-  let p_tag = $("p#result");
-  if (comR == userCl) {
-    p_tag.text("Its a Draw!!");
+      Move(options[r], context, canvas.width - 150, canvas.height / 2 - 100);
+      let button = document.createElement("button");
+      button.innerText = "Play Again ";
+      let body = document.querySelector("body");
+      body.appendChild(button);
+      button.addEventListener("click", () => {
+        window.location.href = "/";
+      });
+    },
+    { once: true }
+  );
+}
+
+function CheckTheWinner(context, userMove, ComputerMove) {
+  if (userMove == ComputerMove) {
+    TellResult(context, "It is a Draw !!");
+    return;
   } else {
-    switch (userCl) {
-      case "Rock":
-        if (comR == "Scissors") {
-          p_tag.text("You Win :)");
-        } else {
-          p_tag.text("You Lose :(");
-        }
-        break;
-      case "Paper":
-        if (comR == "Rock") {
-          p_tag.text("You Win :)");
-        } else {
-          p_tag.text("You Lose :(");
-        }
-        break;
-      case "Scissors":
-        if (comR == "Paper") {
-          p_tag.text("You Win :)");
-        } else {
-          p_tag.text("You Lose :(");
-        }
-        break;
+    if (userMove === 0) {
+      if (ComputerMove === 1) {
+        TellResult(context, "You win : )");
+        return;
+      } else {
+        TellResult(context, "You Lose : (");
+        return;
+      }
+    } else if (userMove === 1) {
+      if (ComputerMove === 0) {
+        TellResult(context, "You Lose : (");
+        return;
+      } else {
+        TellResult(context, "You win : )");
+        return;
+      }
+    } else if (userMove === 2) {
+      if (ComputerMove === 0) {
+        TellResult(context, "You lose : )");
+        return;
+      } else {
+        TellResult(context, "You win : (");
+        return;
+      }
     }
   }
-  //creating a new button so that user play the game again
-  $("div.con").after("<button id='again'>Play again</button>");
-  $("#again").click(() => {
-    window.location.reload();
-  });
-});
+}
+
+function TellResult(context, result) {
+  context.font = "30px Arial";
+  context.fillStyle = "white";
+  context.fillText(result, 230, 100);
+}
+
+function Move(img, context, x, y) {
+  context.drawImage(img, x, y, 100, 150);
+}
+
+function RandomMove() {
+  let r = Math.floor(Math.random() * 3);
+  return r;
+}
