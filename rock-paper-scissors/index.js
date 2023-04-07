@@ -45,7 +45,7 @@ function Main() {
       let body = document.querySelector("body");
       body.appendChild(button);
       button.addEventListener("click", () => {
-        window.location.href = "/";
+        window.location.reload();
       });
     },
     { once: true }
