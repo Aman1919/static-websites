@@ -1,41 +1,55 @@
 # static-websites
 
-These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
+<h2>These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
+</h2>
+<ul>
+<li> <a href="https://aman1919.github.io/static-websites/weather/index.html">Weather App</a></li>
 
-Weather app -  https://aman1919.github.io/static-websites/weather/index.html
+<li> <a href="https://aman1919.github.io/static-websites/roman/index.html">Roman Converter</a></li>
 
-Roman converter - https://aman1919.github.io/static-websites/roman/index.html
+<li><a href="https://aman1919.github.io/static-websites/resume-Builder/index.html">Resume Builder</a></li>
 
-Resume Builder - https://aman1919.github.io/static-websites/resume-Builder/index.html
+<li><a href="https://aman1919.github.io/static-websites/calculator/calculator.html">Calculator</a></li>
 
-Calculator - https://aman1919.github.io/static-websites/calculator/calculator.html
+<li><a href="https://aman1919.github.io/static-websites/To%20do%20list/index.html">To do list</a></li>
 
-to do list - https://aman1919.github.io/static-websites/To%20do%20list/index.html
+<li><a href="https://aman1919.github.io/static-websites/Snake%20game/index.html">Snake Game</a></li>
 
-Snake Game - https://aman1919.github.io/static-websites/Snake%20game/index.html
+<li><a href="https://aman1919.github.io/static-websites/tic-tac-toe/index.html">Tic Tac toe</a></li>
 
-copy music website - https://aman1919.github.io/static-websites/copy%20%20music%20website/indexj.html
+<li><a href="https://aman1919.github.io/static-websites/copy%20%20music%20website/indexj.html">Copy Music Website</a></li>
 
-copy website first - https://aman1919.github.io/static-websites/copy%20website%20first/index2.html
+ <li> <a href="https://aman1919.github.io/static-websites/copy%20website%20first/index2.html"
+> copy website first</a> </li>
+<li><a  href="https://aman1919.github.io/static-websites/copy%20website%20ngo/copy/nav.html">copy website ngo</a></li>
 
-copy website ngo - https://aman1919.github.io/static-websites/copy%20website%20ngo/copy/nav.html
+<li><a href="https://aman1919.github.io/static-websites/count-random/count.html">Count</a></li>
 
-count - https://aman1919.github.io/static-websites/count-random/count.html
+<ul>
+Frontend Practice .Com:-
 
-frontend:-
+<li><a href ="https://aman1919.github.io/static-websites/frontend/Ableton/index.html">Ableton</a></li>
 
-Ableton -https://aman1919.github.io/static-websites/frontend/Ableton/index.html
+<li> <a href="https://aman1919.github.io/static-websites/frontend/backstage%20talks/">Backstage talks</a></li>
 
-backstage talks - https://aman1919.github.io/static-websites/frontend/backstage%20talks/
+<li> <a href="https://aman1919.github.io/static-websites/frontend/lobe%20tour/">lobe tour</a></li>
 
-lobe tour - https://aman1919.github.io/static-websites/frontend/lobe%20tour/
+</ul>
 
-layout2 - https://aman1919.github.io/static-websites/layout%202/ne_w.html
+<li><a href="https://aman1919.github.io/static-websites/layout%202/ne_w.html">Layout 2</a></li>
 
-parking lot magement system - https://aman1919.github.io/static-websites/parking_lot_mangement/plms.html
+ <li> <a href="https://aman1919.github.io/static-websites/parking_lot_mangement/plms.html">
+parking lot magement system</a></li>
+<li>
+<a
+href="https://aman1919.github.io/static-websites/responsive%20page/test.html">
+First Web page
+</a>
+</li>
+<a 
+href= "https://aman1919.github.io/static-websites/rock-paper-scissors/index.html">Rock,paper,scissors</a></li>
 
-reponsive page - https://aman1919.github.io/static-websites/responsive%20page/test.html
+<li><a  href="https://aman1919.github.io/static-websites/webpage%20layout%201/web_page.html">
+layout 1 </a></li>
 
-Rock,paper,scissors - https://aman1919.github.io/static-websites/rock-paper-scissors/index.html
-
-layout 1 - https://aman1919.github.io/static-websites/webpage%20layout%201/web_page.html
+</ul>
