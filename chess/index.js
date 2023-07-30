@@ -1,5 +1,5 @@
 import { json } from "./DefaultPositions.js";
-
+import { MouseDown, MouseUp } from "./event.js";
 let canvas = document.querySelector("canvas");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width,
@@ -9,7 +9,8 @@ let BlockWidth = canvasWidth / 8,
   BlockHeight = canvasHeight / 8;
 let BlackColor = "#9f7119",
   WhiteColor = "#debf83";
-
+let turn = 1; //white=0,black=1;
+let selectedBlock = null;
 function DrawChessBoard() {
   //Drawing The chess Board
   for (let i = 0; i <= NO_OF_ROWS; i++) {
@@ -43,34 +44,61 @@ status:if piece is in play or not
 }]}
  */
 function DrawPieces() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  DrawChessBoard();
   for (let i = 0; i < json.white.length; i++) {
     let w = json.white[i];
     let b = json.black[i];
     DrawImg(w.piece, w.row, w.col, 100);
-    DrawImg(b.piece, b.row - 0.4, b.col, 0);
+    DrawImg(b.piece, b.row - 0.44, b.col, 0); //-.44 bcz by row*100   generating middle coord of the block of so, pieces are getting overflow
   }
 }
-
+canvas.onmousedown = MouseDown;
+canvas.onmouseup = (e) => {
+  let a = MouseUp(e);
+  turn = a;
+};
 function DrawImg(piecePosition, row, col, ImgY) {
   const img = new Image();
   img.src = "pieces.png";
+  img.draggable = true;
   img.onload = () => {
     ctx.drawImage(
       img,
       piecePosition * 100,
       ImgY,
       100,
-      100,
+      93,
       col * 100,
       row * 100,
       100,
-      95
+      93
     );
   };
 }
+function print() {
+  ctx.font = "10px Arial";
+  ctx.fillStyle = "black";
+  let j = "abcdefgh";
+  for (let i = 0; i <= NO_OF_ROWS; i++) {
+    ctx.fillText(i + 1, 5, 8 + i * 100);
+    ctx.fillText(j[i], 90 + i * 100, 10);
+  }
+}
+
 function Game() {
-  DrawChessBoard();
   DrawPieces();
+  print();
 }
 
 Game();
+
+export {
+  ctx,
+  selectedBlock,
+  turn,
+  canvas,
+  BlockHeight,
+  BlockWidth,
+  DrawPieces,
+};
