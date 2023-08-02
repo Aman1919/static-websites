@@ -17,7 +17,7 @@ class Piece {
   }
 }
 
-let json = {
+let pieces = {
   white: [
     new Piece(0, 0, ROUKE, 0, "rouke"),
     new Piece(0, 1, KNIGHT, 0, "knight"),
@@ -55,4 +55,4 @@ let json = {
     new Piece(6, 7, PAWN, 1, "pawn"),
   ],
 };
-export { json };
+export { pieces };

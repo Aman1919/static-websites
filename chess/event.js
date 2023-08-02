@@ -1,13 +1,5 @@
-import {
-  ctx,
-  canvas,
-  BlockHeight,
-  BlockWidth,
-  DrawPieces,
-  selectedBlock,
-  turn,
-} from "./index.js";
-import { json } from "./DefaultPositions.js";
+import { ctx, canvas, BlockHeight, BlockWidth, turn } from "./index.js";
+import { pieces } from "./DefaultPositions.js";
 
 let isDragging = null;
 let piece;
@@ -19,7 +11,7 @@ let MouseDown = (e) => {
   let BlockY = Math.floor((e.y - rect.y) / 100);
   console.log(BlockX + " " + BlockY);
 
-  json.black.find(SelectingObject) || json.white.find(SelectingObject);
+  pieces.black.find(SelectingObject) || pieces.white.find(SelectingObject);
 
   // if (turn != piece.color) {
   // alert("It's " + 0 ? "white" : "Black" + "turn");
@@ -45,16 +37,16 @@ function MouseUp(e) {
   let BlockX = Math.floor((e.x - rect.x) / 100);
   let BlockY = Math.floor((e.y - rect.y) / 100);
   if (!turn) {
-    json.white[selectedPieceIndex].row = BlockY;
-    json.white[selectedPieceIndex].col = BlockX;
+    pieces.white[selectedPieceIndex].row = BlockY;
+    pieces.white[selectedPieceIndex].col = BlockX;
   } else {
-    json.black[selectedPieceIndex].row = BlockY;
-    json.black[selectedPieceIndex].col = BlockX;
+    pieces.black[selectedPieceIndex].row = BlockY;
+    pieces.black[selectedPieceIndex].col = BlockX;
   }
   // turn = !turn;
   isDragging = false;
   selectedPieceIndex = null;
-  DrawPieces();
+  // DrawPieces();
   return !turn;
 }
 export { MouseDown, MouseUp };
