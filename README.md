@@ -5,6 +5,8 @@
 <ul>
 <li> <a href="https://aman1919.github.io/static-websites/weather/index.html">Weather App</a></li>
 
+<li> <a href="https://aman1919.github.io/static-websites/chess/index.html">Chess Game (In-Progress)</a></li>
+
 <li> <a href="https://aman1919.github.io/static-websites/roman/index.html">Roman Converter</a></li>
 
 <li><a href="https://aman1919.github.io/static-websites/resume-Builder/index.html">Resume Builder</a></li>
