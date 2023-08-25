@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2 Player Chess</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-      }
-      body {
-        font-family: sans-serif;
-        font-size: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
-      canvas {
-        width: min(800px, 90vw);
-        height: min(800px, 90vw);
-        margin: 1rem;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2 Player Chess</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
 
-  <body>
-    <canvas width="800" height="750"></canvas>
-    <script type="module" src="index.js"></script>
-  </body>
+    body {
+      font-family: sans-serif;
+      font-size: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(54, 52, 52);
+    }
+
+    canvas {
+      width: min(800px, 90vw);
+      height: min(800px, 90vw);
+      margin: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="800" height="800"></canvas>
+  <script type="module" src="index.js"></script>
+</body>
+
 </html>
