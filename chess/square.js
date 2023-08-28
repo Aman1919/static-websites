@@ -10,29 +10,24 @@ SquareColor     Location
 
 import { BlockWidth, BlockHeight } from "./index.js";
 
+const SquareColor = {
+    DARKSQUARE: '#9f7119',
+    LIGHTSQUARE: '#debf83',
 
-class SquareColor {
-
-    constructor() {
-        this.black = '#9f7119',
-            this.white = '#debf83'
-    }
-
-    getSquareColor(i, j) {
+    getSquareColor: (i, j) => {
         if ((i % 2 === 0 && j % 2 === 0) || (i % 2 !== 0 && j % 2 !== 0)) {
-            return this.black;
+            return SquareColor.DARKSQUARE;
         } else {
-            return this.white;
+            return SquareColor.LIGHTSQUARE;
         }
     }
+
 }
 
-
-
 class Square {
-    constructor(Location, SquareColor, context, piece) {
+
+    constructor(Location, context, piece) {
         this.Location = Location
-        this.SquareColor = SquareColor
         this.isOccupied = false;
         this.width = BlockWidth
         this.context = context
@@ -44,43 +39,54 @@ class Square {
     }
 
     reset() {
-        this.isOccupied = false
+        this.isOccupied = false;
+        let f = this.Location.getFile()
+        let r = this.Location.getRank()
+        this.piece = null
+        this.context.clearRect(f * 100, r * 100, this.width, this.height)
+        this.drawSquare();
+
     }
 
-    getCurrentSquare() {
-        return this;
-    }
 
-    setCurrentSquare(square) {
-        this.currentPiece = square
+
+
+
+    setCurrentSquare(piece) {
+        this.piece = piece
+        this.drawSquare()
+        this.drawPiece()
+
     }
 
     drawSquare() {
         let f = this.Location.getFile()
         let r = this.Location.getRank()
-        this.context.fillStyle = this.SquareColor
+        this.context.fillStyle = SquareColor.getSquareColor(f, r);
+        this.context.globalAlpha = 1;
         this.context.fillRect(f * this.width, r * this.height, this.width, this.height)
     }
 
-    DrawPieceSelectStroke() {
-        if (!this.piece) return;
+
+    getSelected() {
         let f = this.Location.getFile()
         let r = this.Location.getRank()
         this.selected = true;
-        this.context.fillStyle = "#4272f5"
-        // this.context.lineWidth = 5
+        this.context.fillStyle = "black"
+
+        this.context.globalAlpha = .5;
         this.context.fillRect(f * 100, r * 100, this.width, this.height)
         this.drawPiece()
     }
-    RemovePieceSelectStroke() {
+
+    DeSelectPiece() {
         this.selected = false;
-        let f = this.Location.getFile()
-        let r = this.Location.getRank()
-        this.context.clearRect(f * 100, r * 100, this.width, this.height)
-        this.drawSquare()
-        this.drawPiece()
+        this.reset();
+
+        this.drawPiece(this.piece)
 
     }
+
 
     drawPiece(piece) {
         if (!this.piece) {

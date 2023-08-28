@@ -18,6 +18,9 @@ class Queen extends Piece {
         moveCandidates.push(this.bishop.getValidMoves(board, this.currentSquare()));
         moveCandidates.push(this.rook.getValidMoves(board, this.currentSquare()))
     }
+    getValidMoves(board, square) {
+
+    }
     makeMoves(square) {
         let current = this.getCurrentSquare();
         this.setCurrentSquare(square)
