@@ -18,18 +18,26 @@
       justify-content: center;
       align-items: center;
       background-color: rgb(54, 52, 52);
+      flex-direction: column;
     }
 
     canvas {
-      width: min(800px, 90vw);
-      height: min(800px, 90vw);
+      /* width: min(800px, 90vw);
+      height: min(800px, 90vw); */
       margin: 1rem;
+    }
+
+    #para {
+      color: white;
+      ;
+      font-size: 2rem;
     }
   </style>
 </head>
 
 <body>
-  <canvas width="800" height="800"></canvas>
+  <canvas></canvas>
+  <p id="para">white's Turn</p>
   <script type="module" src="index.js"></script>
 </body>
 

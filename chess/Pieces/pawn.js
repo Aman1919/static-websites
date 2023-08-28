@@ -1,8 +1,13 @@
 import { Piece } from "./piece.js";
-import { LocationFactory } from "../Location.js";
+import {
+    LocationFactory,
+    Location
+} from "../Location.js";
 import { Pieces } from "../defs.js";
+import { Board, locationSquareMap } from "../Board.js";
+
 class Pawn extends Piece {
-    #isFirstMove = true;
+    #isFirstMove = 2;
     constructor(PieceColor) {
         super(PieceColor);
         this.name = "Pawn";
@@ -14,29 +19,73 @@ class Pawn extends Piece {
         return this.PieceColor ? Pieces.p : Pieces.P;
     }
 
-    // getPiece() {
-    //     return this.PieceColor.LIGHT ? Pieces.P : Pieces.p
-    // }
+
     getValidMoves(board) {
         let moveCandidates = []
-        let current = this.currentSquare().getLocation()
-        moveCandidates.push(new LocationFactory().Build(current, 0, 1))
-        if (this.#isFirstMove) {
-            moveCandidates.push(new LocationFactory().Build(current, 0, 2))
-            return moveCandidates;
-        }
-        moveCandidates.push(new LocationFactory().Build(current, 1, 1))
-        moveCandidates.push(new LocationFactory().Build(current, -1, 1))
-        let validMoves = moveCandidates.filter((candidate) => {
-            return (board.getLocationSquareMap().has(candidate))
-        })
+
         return validMoves;
 
     }
-    getValidMoves(board, square) {
 
+    /* 
+    4 Pawns Moves:
+    1 . One step - File, Rank +- 1 depending on color
+    2 . two step - file , rank +-2  "" ""
+    3 . left - file - 1 , rank +- 1 " "  "" and if enemys piece is there
+    4 . right - rank + 1,  rank +- 1 ""
+     */
+    getValidMoves(board, square, turn) {
+        let ValidMoves = [];
+        this.currentSquare = square;
+        let file = square.getLocation().getFile();
+        let rank = square.getLocation().getRank();
+
+        let OneStepMove = !turn ? new Location(file, rank + 1).getName() : new Location(file, rank - 1).getName();
+        let TwoStepMove = !turn ? new Location(file, rank + 2).getName() : new Location(file, rank - 2).getName();
+        let leftCaptureMove = !turn ? new Location(file - 1, rank + 1).getName() : new Location(file - 1, rank - 1).getName();
+        let rightCaptureMove = !turn ? new Location(file + 1, rank + 1).getName() : new Location(file + 1, rank - 1).getName();
+
+
+        locationSquareMap.forEach((value, key) => {
+            if (OneStepMove === key.getName()) {
+                OneStepMove = value;
+            }
+            if (TwoStepMove === key.getName()) {
+                TwoStepMove = value;
+
+            }
+
+            if (leftCaptureMove === key.getName()) {
+                leftCaptureMove = value;
+            }
+            if (rightCaptureMove === key.getName()) {
+                rightCaptureMove = value;
+            }
+
+        })
+
+
+        if (!OneStepMove.piece) {
+            ValidMoves.push(OneStepMove)
+            if (!TwoStepMove.piece) ValidMoves.push(TwoStepMove)
+        }
+
+        if (leftCaptureMove.piece && leftCaptureMove.piece.PieceColor != turn) ValidMoves.push(leftCaptureMove)
+        if (rightCaptureMove.piece && leftCaptureMove.piece.PieceColor != turn) ValidMoves.push(rightCaptureMove);
+
+
+
+        console.log(ValidMoves);
+
+
+        return ValidMoves;
     }
+
     makeMoves(square) {
+        this.currentSquare = square;
+        let file = square.getLocation().getFile();
+        let rank = square.getLocation().getRank();
+
 
     }
 

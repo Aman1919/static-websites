@@ -13,18 +13,10 @@ const Pieces = {
     p: '♟'
 
 }
-// let state = [
-//     [r, n, b, q, k, b, n, r],
-//     [p, p, p, p, p, p, p, p],
-//     ['', '', '', '', '', '', '', ''],
-//     ['', '', '', '', '', '', '', ''],
-//     ['', '', '', '', '', '', '', ''],
-//     ['', '', '', '', '', '', '', ''],
-//     [P, P, P, P, P, P, P, P],
-//     [R, N, B, Q, K, B, N, R],
+
+let state = [[], [], [], [], [], [], [], []];
 
 
-// ]
 const pieceColor = {
     LIGHT: 0,
     DARK: 1
@@ -43,4 +35,4 @@ const File = {
 
 }
 
-export { Pieces, File, pieceColor }
+export { Pieces, File, pieceColor, state }

@@ -6,10 +6,10 @@ class Piece {
     }
 
     getPieceColor() {
-        return this.name;
+        return this.PieceColor;
     }
     getName() {
-        return this.PieceColor
+        return this.name
     }
     getCurrentSquare() {
         return this.currentSquare
