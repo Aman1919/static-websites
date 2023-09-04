@@ -1,5 +1,5 @@
 import { Board } from "./Board.js";
-import { Drag, event } from "./Event.js";
+import { event } from "./Event.js";
 const canvas = document.querySelector('canvas')
 
 canvas.width = Math.min(800, window.innerWidth * 0.9)
@@ -13,6 +13,12 @@ let BlockWidth = canvas_width / 8
 let BlockHeight = canvas_height / 8
 let context = canvas.getContext('2d');
 
+window.addEventListener('resize', () => {
+    canvas_width = canvas.width = canvas.width = window.innerWidth * 0.9;
+    canvas_height = canvas.height = window.innerHeight * 0.9;
+    location.reload();
+})
+
 
 class Game {
     constructor() {
@@ -25,18 +31,20 @@ class Game {
 function main() {
     let game = new Game();
     let Movement = new event()
-    canvas.addEventListener('drag', Drag);
-
+    let dragging = false;
     canvas.addEventListener('click', (e) => {
         e.preventDefault()
-        Movement.Action(e);
+        Movement.OnClick(e);
+    });
+    canvas.addEventListener('mousemove', (e) => {
+        e.preventDefault()
+        Movement.OnMouseMove(e);
+
+    });
+    canvas.addEventListener('mousedown', (e) => {
+        Movement.OnMouseUp(e);
     });
 
-    // canvas.addEventListener('mouseup', (e) => {
-    //     e.preventDefault()
-    //     console.log('up');
-    //     Movement.MakeMove(e);
-    // });
 }
 
 window.load = main()
