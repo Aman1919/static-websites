@@ -28,7 +28,6 @@ class Square {
 
     constructor(Location, context, piece) {
         this.Location = Location
-        this.isOccupied = false;
         this.width = BlockWidth
         this.context = context
         this.piece = piece
@@ -39,23 +38,19 @@ class Square {
     }
 
     reset() {
-        this.isOccupied = false;
         let f = this.Location.getFile()
         let r = this.Location.getRank()
-        this.piece = null
-        this.context.clearRect(f * 100, r * 100, this.width, this.height)
+        this.context.clearRect(f * this.width, r * this.height, this.width, this.height)
         this.drawSquare();
+        this.drawPiece();
 
     }
 
 
 
-
-
     setCurrentSquare(piece) {
         this.piece = piece
-        this.drawSquare()
-        this.drawPiece()
+        this.reset();
 
     }
 
@@ -68,51 +63,44 @@ class Square {
     }
 
 
-    getSelected() {
+    selectPieces(turn) {
         let f = this.Location.getFile()
         let r = this.Location.getRank()
-        this.selected = true;
-        this.context.fillStyle = "black"
+        this.context.fillStyle = (this.piece && this.piece.PieceColor != turn) ? 'red' : 'yellow'
 
-        this.context.globalAlpha = .5;
-        this.context.fillRect(f * 100, r * 100, this.width, this.height)
-        this.drawPiece()
-    }
-
-    DeSelectPiece() {
-        this.selected = false;
-        this.reset();
-
-        this.drawPiece(this.piece)
-
+        this.context.globalAlpha = .2;
+        this.context.fillRect(f * this.width, r * this.height, this.width, this.height)
     }
 
 
-    drawPiece(piece) {
+
+
+
+    drawPiece() {
         if (!this.piece) {
             return;
         }
-        this.isOccupied = true;
-        this.context.font = '95px sans-serif'
-        this.context.fillStyle = this.selectPieceColor(piece)
-        this.context.textAlign = 'center'
+        this.context.font = Math.min(this.height * .9, 95) + 'px sans-serif'
+        this.context.fillStyle = this.selectPieceColor()
+        this.context.textAlign = 'center';
         this.context.textBaseline = 'middle'
         let f = this.Location.getFile();
         let r = this.Location.getRank();
-        this.context.fillText(this.piece.PieceText, f * 100 + 50, 50 + r * 100)
+        this.context.fillText(this.piece.PieceText, f * this.width + 50, 50 + r * this.height)
     }
 
-    selectPieceColor(piece) {
+
+
+    selectPieceColor() {
         return this.piece.PieceColor ? 'black' : 'white';
     }
-    isOccupied() {
-        return this.isOccupied;
+    isSelected() {
+        return this.selected;
     }
+    Selected(s) {
+        this.selected = s
 
-    setOccupied(occupied) {
-        this.isOccupied = occupied
     }
-
     getLocation() {
         return this.Location;
     }
@@ -121,5 +109,6 @@ class Square {
     }
 
 }
+
 
 export { Square, SquareColor }

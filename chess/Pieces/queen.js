@@ -1,31 +1,27 @@
 import { Piece } from "./piece.js";
-import { Pieces } from "../defs.js";
+import { Pieces } from "../defs.js"
+import { Bishop } from "./bishop.js";
+import { Rook } from "./rook.js";
 class Queen extends Piece {
-    #bishop;
-    #rook;
-    constructor(PieceColor, bishop, rook) {
+    constructor(PieceColor) {
         super(PieceColor);
         this.name = "Queen";
-        this.bishop = bishop
-        this.rook = rook;
+        this.bishop = new Bishop(this.PieceColor)
+        this.rook = new Rook(this.PieceColor);
         this.PieceText = this.selectPieceColor()
     }
     selectPieceColor() {
         return this.PieceColor ? Pieces.q : Pieces.Q;
     }
-    getValidMoves(board) {
-        let moveCandidates = new Array();
-        moveCandidates.push(this.bishop.getValidMoves(board, this.currentSquare()));
-        moveCandidates.push(this.rook.getValidMoves(board, this.currentSquare()))
+    getValidMoves(board, square, turn) {
+        let diagonalMoves = new Bishop(this.PieceColor).getValidMoves(board, square, turn);
+        let straightMoves = new Rook(this.PieceColor).getValidMoves(board, square, turn);
+        let validMoves = [...diagonalMoves, ...straightMoves];
+        console.log(this);
+        return validMoves
     }
-    getValidMoves(board, square) {
 
-    }
-    makeMoves(square) {
-        let current = this.getCurrentSquare();
-        this.setCurrentSquare(square)
-        current.reset();
-    }
+
 
 }
 

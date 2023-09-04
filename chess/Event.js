@@ -1,91 +1,92 @@
 import { canvas, BlockHeight, BlockWidth } from "./index.js";
 import { locationSquareMap } from "./Board.js";
 import { Location } from "./Location.js";
-import { state } from "./defs.js";
+import { state, pieceColor } from "./defs.js";
 let PrevSelectedValidSquares = [];
 let PrevSelectedSquare = null
-let turn = 0;
+let turn = pieceColor.LIGHT;
 
 let p = document.getElementById('para');
-
 console.log(state);
 
 
 
 class event {
+    IsDragging = false;
+    SelectedSquare = null;
 
-    SelectSquare(square) {
-        if (PrevSelectedValidSquares.length && PrevSelectedSquare) {
+    OnClick(e) {
+        this.deSelectPrevMoves()
+        let square = this.GetSquare(e);
 
+        let piece = square.piece
+        if (!piece || piece.PieceColor != turn) return;
 
-            PrevSelectedValidSquares.forEach(s => s.DeSelectPiece())
-            // PrevSelectedSquare.DeSelectPiece()
-            PrevSelectedSquare = null;
-            PrevSelectedValidSquares = [];
-        }
-        if (!square.isOccupied) return;
+        square.Selected(true);
 
+        let validMoves = piece.getValidMoves(state, square, turn);
+        console.log(validMoves);
+        this.select(validMoves);
 
-        if (square.piece.getPieceColor() !== turn) {
-            return;
-        }
-
-        let pieceValidMoves = square.piece.getValidMoves(state, square, turn)
-        // square.getSelected()
-        pieceValidMoves.forEach((s) => [
-            s.getSelected()
-        ])
-
-        PrevSelectedSquare = square
-        PrevSelectedValidSquares = pieceValidMoves;
-    }
-    Action(event) {
-        let square = this.GetSquare(event);
-
-        if (PrevSelectedSquare && this.isValid(square)) {
-            this.MakeMove(square)
-            this.DeSelectPrev()
-        } else {
-            this.SelectSquare(square);
-
-        }
-
-    }
-    isValid(square) {
-        let flag = false;
-        PrevSelectedValidSquares.forEach((s) => {
-            if (s.getLocation().getName() == square.getLocation().getName()) {
-                flag = true;
-            }
-        })
-        return flag
-    }
-    DeSelectPrev() {
-        if (PrevSelectedValidSquares.length && PrevSelectedSquare) {
-            PrevSelectedValidSquares.forEach(s => s.DeSelectPiece())
-            PrevSelectedSquare.DeSelectPiece()
-            PrevSelectedSquare = null;
-            PrevSelectedValidSquares = [];
-        }
+        PrevSelectedSquare = square;
+        PrevSelectedValidSquares = validMoves;
     }
 
-    MakeMove(square) {
-        let index;
-        PrevSelectedValidSquares.forEach((s, i) => {
-            if (s.getLocation().getName() == square.getLocation().getName()) {
-                index = i;
-            }
-        })
+    updateState() {
+        let pf = PrevSelectedSquare.getLocation().getFile()
+        let pr = PrevSelectedSquare.getLocation().getRank()
+        let sr = this.SelectedSquare.getLocation().getRank()
+        let sf = this.SelectedSquare.getLocation().getFile()
+        let piece = state[pr][pf].piece;
+        state[sr][sf].setCurrentSquare(piece)
+        state[pr][pf].setCurrentSquare(null);
+    }
 
+    OnMouseUp(e) {
+        if (!this.SelectedSquare || !this.IsDragging) return;
+        e.preventDefault()
         let piece = PrevSelectedSquare.piece;
-        PrevSelectedValidSquares.splice(index, 1)
-        PrevSelectedSquare.reset();
-        square.setCurrentSquare(piece);
-
-        console.log(square);
-
+        // this.updateState();
+        piece.makeMoves(this.SelectedSquare, PrevSelectedSquare);
+        this.deSelectPrevMoves()
+        turn = !turn ? pieceColor.DARK : pieceColor.LIGHT;
 
     }
+
+
+    OnMouseMove(e) {
+        if (!PrevSelectedSquare || !PrevSelectedValidSquares.length) return;
+        this.IsDragging = true;
+        let square = this.GetSquare(e);
+        if (this.isValid(square)) {
+            this.SelectedSquare = square;
+        }
+    }
+
+
+    isValid(square) {
+        let location = square.getLocation().getName();
+        return PrevSelectedValidSquares.some(p => p.getLocation().getName() === location)
+    }
+
+
+    select(validMoves) {
+        validMoves.forEach(moves => { moves.selectPieces(turn) })
+    }
+
+    deSelectPrevMoves() {
+        if (!PrevSelectedSquare || !PrevSelectedSquare.isSelected()) return;
+        PrevSelectedSquare.Selected(false);
+        PrevSelectedSquare = null;
+        this.SelectedSquare = null;
+        this.IsDragging = false;
+        PrevSelectedValidSquares.forEach(moves => {
+            moves.reset();
+
+        })
+    }
+
+
 
     GetSquare(event) {
         const rect = canvas.getBoundingClientRect();
@@ -113,11 +114,6 @@ class event {
 
 
 
-function Drag() {
 
 
-}
-
-
-
-export { Drag, event }
+export { event }

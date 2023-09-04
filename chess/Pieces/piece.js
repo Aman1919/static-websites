@@ -11,6 +11,9 @@ class Piece {
     getName() {
         return this.name
     }
+    isAlive() {
+
+    }
     getCurrentSquare() {
         return this.currentSquare
     }
@@ -20,10 +23,14 @@ class Piece {
     getValidMoves(board) {
         return null
     }
+    makeMoves(SelectedSquare, PrevSelectedSquare) {
+        this.currentSquare = SelectedSquare;
+
+        SelectedSquare.setCurrentSquare(this);
+        PrevSelectedSquare.setCurrentSquare(null);
+    }
     getValidMoves(board, square) {
 
-    }
-    makeMoves(square) {
     }
 
 }
