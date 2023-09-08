@@ -10,9 +10,9 @@ class Knight extends Piece {
     selectPieceColor() {
         return this.PieceColor ? Pieces.n : Pieces.N;
     }
-    validSquare(file, rank, board) {
+    validSquare(rank, file, board) {
         if (file >= 8 || file < 0 || rank < 0 || rank >= 8) return;
-        return board[file][rank];
+        return board[rank][file];
     }
     getValidMoves(board, square, turn) {
         let file = square.getLocation().getFile()

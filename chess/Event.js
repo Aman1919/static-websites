@@ -1,20 +1,23 @@
 import { canvas, BlockHeight, BlockWidth } from "./index.js";
-import { locationSquareMap } from "./Board.js";
+import { AllPieces, locationSquareMap } from "./Board.js";
 import { Location } from "./Location.js";
 import { state, pieceColor } from "./defs.js";
+import { ChessEngine } from "./chessEngine.js";
+
 let PrevSelectedValidSquares = [];
 let PrevSelectedSquare = null
 let turn = pieceColor.LIGHT;
 
 let p = document.getElementById('para');
-console.log(state);
+
 
 
 
 class event {
     IsDragging = false;
     SelectedSquare = null;
-
+    ChessEngine = new ChessEngine()
+    CheckMate = false;
     OnClick(e) {
         this.deSelectPrevMoves()
         let square = this.GetSquare(e);
@@ -23,36 +26,118 @@ class event {
         if (!piece || piece.PieceColor != turn) return;
 
         square.Selected(true);
-
         let validMoves = piece.getValidMoves(state, square, turn);
-        console.log(validMoves);
-        this.select(validMoves);
+
+        let checkvalidMoves = this.CheckValidMoves(validMoves, square);
+
+
+        this.SelectedSquare = null;
+        this.IsDragging = false;;
+        this.select(checkvalidMoves);
 
         PrevSelectedSquare = square;
-        PrevSelectedValidSquares = validMoves;
+        PrevSelectedValidSquares = checkvalidMoves;
     }
 
-    updateState() {
-        let pf = PrevSelectedSquare.getLocation().getFile()
-        let pr = PrevSelectedSquare.getLocation().getRank()
-        let sr = this.SelectedSquare.getLocation().getRank()
-        let sf = this.SelectedSquare.getLocation().getFile()
-        let piece = state[pr][pf].piece;
-        state[sr][sf].setCurrentSquare(piece)
-        state[pr][pf].setCurrentSquare(null);
+    CheckValidMoves(validMoves, square) {
+        let checkvalidMoves = [];
+        let piece = square.piece
+        for (let i = 0; i < validMoves.length; i++) {
+            PrevSelectedSquare = square;
+            this.SelectedSquare = validMoves[i];
+            let spiece = this.SelectedSquare.piece;
+            piece.makeMoves(this.SelectedSquare, PrevSelectedSquare)
+
+            if (!this.check()) {
+                checkvalidMoves.push(validMoves[i])
+
+            }
+            piece.makeMoves(PrevSelectedSquare, this.SelectedSquare)
+            this.SelectedSquare.setCurrentSquare(spiece);
+
+
+        }
+        PrevSelectedSquare = null;
+        this.SelectedSquare = null;
+        return checkvalidMoves
     }
 
     OnMouseUp(e) {
         if (!this.SelectedSquare || !this.IsDragging) return;
         e.preventDefault()
         let piece = PrevSelectedSquare.piece;
-        // this.updateState();
+
         piece.makeMoves(this.SelectedSquare, PrevSelectedSquare);
         this.deSelectPrevMoves()
         turn = !turn ? pieceColor.DARK : pieceColor.LIGHT;
-
+        p.innerText = turn ? "Black's Turn" : "White's Turn"
+        this.CheckWinner()
     }
 
+    CheckWinner() {
+        if (this.check()) {
+            let allMoves = []
+            AllPieces.forEach(p => {
+                if (p.PieceColor === turn) {
+                    let vm = p.getValidMoves(state, p.currentSquare, turn);
+                    let cm = this.CheckValidMoves(vm, p.currentSquare)
+                    allMoves = [...allMoves, ...cm]
+                }
+            })
+            console.log(allMoves);
+            if (!allMoves.length) {
+                alert(!turn + " is win")
+            }
+        }
+    }
+
+    searchKing() {
+        let king;
+        AllPieces.forEach(piece => {
+            if (piece.PieceColor === turn && piece.getName() === 'King') {
+                king = piece.currentSquare
+            }
+        })
+        return king;
+    }
+
+    OpponentValidMoves() {
+        let OpponentsValidMoves = [];
+
+        AllPieces.forEach(piece => {
+            if (piece.PieceColor == !turn) {
+                let validMoves = piece.getValidMoves(state, piece.currentSquare, !turn);
+                OpponentsValidMoves = [...OpponentsValidMoves, ...validMoves];
+            }
+        })
+
+        return OpponentsValidMoves;
+    }
+
+    check() {
+        let king = this.searchKing();
+        let KingValidMoves = king.piece.getValidMoves(state, king, turn);
+        KingValidMoves.push(king)
+        let OpponentsValidMoves = this.OpponentValidMoves()
+        if (this.abc(KingValidMoves, OpponentsValidMoves)) {
+            this.CheckMate = true;
+            console.log("check");
+            return true
+        }
+        this.CheckMate = false;
+        return false
+    }
+
+    abc(King, Opponent) {
+        for (let i = 0; i < King.length; i++) {
+            for (let j = 0; j < Opponent.length; j++) {
+                if (King[i].getLocation().getName() === Opponent[j].getLocation().getName()) {
+                    return true;
+                }
+            }
+        }
+        return false
+    }
 
     OnMouseMove(e) {
         if (!PrevSelectedSquare || !PrevSelectedValidSquares.length) return;
@@ -62,7 +147,6 @@ class event {
             this.SelectedSquare = square;
         }
     }
-
 
     isValid(square) {
         let location = square.getLocation().getName();

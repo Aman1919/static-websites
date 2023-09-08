@@ -83,11 +83,9 @@ class Rook extends Piece {
     getValidMoves(board, square, turn) {
         let file = square.getLocation().getFile();
         let rank = square.getLocation().getRank();
-        console.log(board);
         let h = this.HorizontalMoves(file, rank, turn, board)
         let v = this.VerticalMoves(file, rank, turn, board)
         let ValidMove = [...h, ...v];
-        console.log(ValidMove);
 
 
         return ValidMove;
