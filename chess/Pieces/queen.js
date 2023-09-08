@@ -17,7 +17,6 @@ class Queen extends Piece {
         let diagonalMoves = new Bishop(this.PieceColor).getValidMoves(board, square, turn);
         let straightMoves = new Rook(this.PieceColor).getValidMoves(board, square, turn);
         let validMoves = [...diagonalMoves, ...straightMoves];
-        console.log(this);
         return validMoves
     }
 

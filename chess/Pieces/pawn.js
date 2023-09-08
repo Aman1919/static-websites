@@ -8,6 +8,7 @@ import { Board, locationSquareMap } from "../Board.js";
 
 class Pawn extends Piece {
     #isFirstMove = true;
+
     constructor(PieceColor) {
         super(PieceColor);
         this.name = "Pawn";
@@ -15,21 +16,30 @@ class Pawn extends Piece {
 
     }
 
+    promotion() {
+
+    }
+
     selectPieceColor() {
         return this.PieceColor ? Pieces.p : Pieces.P;
     }
+    validSquare(file, rank, board) {
+        if (file >= 8 || file < 0 || rank < 0 || rank >= 8) return;
+        return board[rank][file];
+    }
+    OneStep(file, rank, turn, board) {
+        return !turn ? this.validSquare(file, rank + 1, board) : this.validSquare(file, rank - 1, board)
+    }
+    TwoStep(file, rank, turn, board) {
+        return !turn ? this.validSquare(file, rank + 2, board) : this.validSquare(file, rank - 2, board)
+    }
+    leftStep(file, rank, turn, board) {
+        return !turn ? this.validSquare(file + 1, rank - 1, board) : this.validSquare(file - 1, rank - 1, board)
 
-    OneStep(file, rank, turn) {
-        return !turn ? new Location(file, rank + 1).getName() : new Location(file, rank - 1).getName()
+
     }
-    TwoStep(file, rank, turn) {
-        return !turn ? new Location(file, rank + 2).getName() : new Location(file, rank - 2).getName()
-    }
-    leftStep(file, rank, turn) {
-        return !turn ? new Location(file - 1, rank + 1).getName() : new Location(file - 1, rank - 1).getName();
-    }
-    rightStep(file, rank, turn) {
-        return !turn ? new Location(file + 1, rank + 1).getName() : new Location(file + 1, rank - 1).getName();
+    rightStep(file, rank, turn, board) {
+        return !turn ? this.validSquare(file + 1, rank + 1, board) : this.validSquare(file + 1, rank - 1, board)
     }
 
     pushMoves(OneStepMove, TwoStepMove, leftCaptureMove, rightCaptureMove, turn) {
@@ -41,8 +51,8 @@ class Pawn extends Piece {
             }
         }
 
-        if (leftCaptureMove.piece && leftCaptureMove.piece.PieceColor != turn) ValidMoves.push(leftCaptureMove)
-        if (rightCaptureMove.piece && rightCaptureMove.piece.PieceColor != turn) ValidMoves.push(rightCaptureMove);
+        if (leftCaptureMove != null && leftCaptureMove.piece && leftCaptureMove.piece.PieceColor != turn) ValidMoves.push(leftCaptureMove)
+        if (rightCaptureMove != null && rightCaptureMove.piece && rightCaptureMove.piece.PieceColor != turn) ValidMoves.push(rightCaptureMove);
         return ValidMoves;
     }
 
@@ -53,31 +63,12 @@ class Pawn extends Piece {
         let file = square.getLocation().getFile();
         let rank = square.getLocation().getRank();
 
-        let OneStepMove = this.OneStep(file, rank, turn);
-        let TwoStepMove = this.TwoStep(file, rank, turn);
-        let leftCaptureMove = this.leftStep(file, rank, turn);
-        let rightCaptureMove = this.rightStep(file, rank, turn);
+        let OneStepMove = this.OneStep(file, rank, turn, board);
+        let TwoStepMove = this.TwoStep(file, rank, turn, board);
+        let leftCaptureMove = this.leftStep(file, rank, turn, board);
+        let rightCaptureMove = this.rightStep(file, rank, turn, board);
 
 
-        locationSquareMap.forEach((value, key) => {
-            if (OneStepMove === key.getName()) {
-                OneStepMove = value;
-            }
-            if (TwoStepMove === key.getName()) {
-                TwoStepMove = value;
-
-            }
-
-            if (leftCaptureMove === key.getName()) {
-                leftCaptureMove = value;
-            }
-            if (rightCaptureMove === key.getName()) {
-                rightCaptureMove = value;
-            }
-
-        })
-
-        console.log(board);
         ValidMoves = this.pushMoves(OneStepMove, TwoStepMove, leftCaptureMove, rightCaptureMove, turn);
         return ValidMoves;
     }

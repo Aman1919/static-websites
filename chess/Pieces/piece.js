@@ -2,7 +2,7 @@ class Piece {
     constructor(PieceColor, name, currentSquare) {
         this.name = name
         this.PieceColor = PieceColor;
-        this.currentSquare = currentSquare;
+        this.currentSquare = null;
     }
 
     getPieceColor() {

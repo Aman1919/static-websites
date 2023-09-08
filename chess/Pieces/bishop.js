@@ -79,7 +79,6 @@ class Bishop extends Piece {
             let square = board[rank][file];
             if (!square.piece) {
                 ValidMove.push(square);
-                console.log(square);
             }
             else if (square.piece && turn != square.piece.PieceColor) {
                 ValidMove.push(square);
