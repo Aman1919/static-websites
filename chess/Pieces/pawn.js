@@ -1,10 +1,5 @@
 import { Piece } from "./piece.js";
-import {
-    LocationFactory,
-    Location
-} from "../Location.js";
 import { Pieces } from "../defs.js";
-import { Board, locationSquareMap } from "../Board.js";
 
 class Pawn extends Piece {
     #isFirstMove = true;
@@ -34,7 +29,7 @@ class Pawn extends Piece {
         return !turn ? this.validSquare(file, rank + 2, board) : this.validSquare(file, rank - 2, board)
     }
     leftStep(file, rank, turn, board) {
-        return !turn ? this.validSquare(file + 1, rank - 1, board) : this.validSquare(file - 1, rank - 1, board)
+        return !turn ? this.validSquare(file - 1, rank - 1, board) : this.validSquare(file - 1, rank - 1, board)
 
 
     }

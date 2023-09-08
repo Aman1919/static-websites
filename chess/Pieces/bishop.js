@@ -40,7 +40,7 @@ class Bishop extends Piece {
             if (!square.piece) {
                 ValidMove.push(square);
             }
-            else if (square.piece && turn != square.piece.PieceColor) {
+            else if (square.piece && turn == !square.piece.PieceColor) {
                 ValidMove.push(square);
                 break
             }
@@ -60,7 +60,7 @@ class Bishop extends Piece {
             if (!square.piece) {
                 ValidMove.push(square);
             }
-            else if (square.piece && turn != square.piece.PieceColor) {
+            else if (square.piece && turn == !square.piece.PieceColor) {
                 ValidMove.push(square);
                 break
             }
