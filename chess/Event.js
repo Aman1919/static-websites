@@ -52,8 +52,10 @@ class event {
                 checkvalidMoves.push(validMoves[i])
 
             }
+
+
             piece.makeMoves(PrevSelectedSquare, this.SelectedSquare)
-            this.SelectedSquare.setCurrentSquare(spiece);
+            if (spiece) this.SelectedSquare.setCurrentSquare(spiece);
 
 
         }
@@ -75,7 +77,7 @@ class event {
     }
 
     CheckWinner() {
-        if (this.check()) {
+        if (this.checkcheckmate()) {
             let allMoves = []
             AllPieces.forEach(p => {
                 if (p.PieceColor === turn) {
@@ -86,11 +88,19 @@ class event {
             })
             console.log(allMoves);
             if (!allMoves.length) {
-                alert(!turn + " is win")
+                alert(!turn ? 'White' : "black" + " is win")
             }
         }
     }
-
+    checkcheckmate() {
+        let king = this.searchKing();
+        let Opponent = this.OpponentValidMoves()
+        for (let j = 0; j < Opponent.length; j++) {
+            if (king.getLocation().getName() === Opponent[j].getLocation().getName()) {
+                return true;
+            }
+        }
+    }
     searchKing() {
         let king;
         AllPieces.forEach(piece => {
@@ -117,7 +127,6 @@ class event {
     check() {
         let king = this.searchKing();
         let KingValidMoves = king.piece.getValidMoves(state, king, turn);
-        KingValidMoves.push(king)
         let OpponentsValidMoves = this.OpponentValidMoves()
         if (this.abc(KingValidMoves, OpponentsValidMoves)) {
             this.CheckMate = true;
