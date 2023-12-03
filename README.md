@@ -19,7 +19,7 @@
 
 <li><a href="https://aman1919.github.io/static-websites/Snake%20game/index.html">Snake Game</a></li>
 
-<li><a href="https://aman1919.github.io/static-websites/tic-tac-toe/index.html">Tic Tac toe</a></li>
+<li><a href="https://aman1919.github.io/static-websites/tic-tac-toe/index.html">Super Tic Tac toe</a></li>
 
 <li><a href="https://aman1919.github.io/static-websites/copy%20%20music%20website/indexj.html">Copy Music Website</a></li>
 
