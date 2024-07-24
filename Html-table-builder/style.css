@@ -1,0 +1,151 @@
+*{
+margin: 0;
+box-sizing: border-box;
+}
+
+body{
+color: rgb(49, 48, 48);
+text-align: center;
+font-family: sans-serif;
+}
+
+h1{
+background-color: rgb(49, 48, 48);
+padding: 1rem 0;
+margin-bottom: 1rem;
+color: white;
+}
+
+th,td,table{
+border: 2px solid black;
+border-collapse: collapse;
+}
+
+#table-editor{
+/* display: table; */
+width: fit-content;
+margin: auto;
+
+}
+
+
+table{
+margin: auto;
+
+}
+.contextMenu-absolute{
+position: relative;
+}
+th,td{
+min-width: 100px;
+height: 30px;
+}
+
+th:focus,td:focus{
+background-color: rgba(0, 0, 0, 0.158);
+}
+
+#generate-html{
+background: rgb(11, 161, 207);
+color: white;
+border: none;
+padding: .6rem;
+display: block;
+margin: 1rem auto;
+}
+
+#generate-html:hover,#add-span:hover{
+background: rgba(11, 161, 207, 0.764);
+}
+
+.row{
+display: flex;
+justify-content: center;
+height: max-content;
+}
+
+.col-btn{
+width: 20px;
+display: inline;
+margin-left:.2rem;
+}
+
+.row-btn{
+width: 80%;
+display: block;
+height: 20px;
+margin:.2rem;
+}
+
+.del{
+background-color: crimson;
+color: white;
+}
+
+
+.add{
+background-color:green;
+color: white;
+}
+
+#html-code-space{
+background-color: rgb(49, 48, 48);
+color: white;
+margin: auto;
+}
+
+#code{
+/* background-color: rgb(49, 48, 48); */
+text-align: left;
+max-width: 90%;
+width:max(30vw,300px);
+padding: 1rem;
+margin: auto;
+} 
+
+
+
+#contextMenu{
+position: absolute;
+display: none;
+top: 0;
+min-width: 100px;
+left: 0;
+color: aliceblue;
+background-color: rgb(63, 64, 66);
+
+}
+
+#add-span{
+
+background: rgb(11, 161, 207);
+color: white;
+border: none;
+padding: .2rem;
+display: block;
+width: 80px;
+margin: .3rem auto;
+}
+
+#contextMenu div{
+background-color: transparent;
+display: flex;
+gap: .3rem;
+padding: .3rem;
+justify-content: space-between;
+align-items: center;
+}
+input{
+width: 20px;
+outline: none;
+background-color: transparent;
+color: white;
+border: 1px solid rgba(255, 255, 255, 0.53);
+}
+input:focus{
+border-bottom: 2px solid rgba(255, 255, 255, 0.466);
+}
+label{
+font-size: 10px;
+
+}
