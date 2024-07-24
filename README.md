@@ -2,9 +2,9 @@
 
 <h2>These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
 </h2>
-<ul>
+<ol>
 <li> <a href="https://aman1919.github.io/static-websites/weather/index.html">Weather App</a></li>
-
+<li> <a href="https://aman1919.github.io/static-websites/Html-table-builder/index.html">Html table builder</a></li>
 <li> <a href="https://aman1919.github.io/static-websites/chess/index.html">Chess Game (In-Progress)</a></li>
 
 <li> <a href="https://aman1919.github.io/static-websites/flappyBird/index.html">Flappy bird</a></li>
@@ -56,4 +56,4 @@ href= "https://aman1919.github.io/static-websites/rock-paper-scissors/index.html
 <li><a  href="https://aman1919.github.io/static-websites/webpage%20layout%201/web_page.html">
 layout 1 </a></li>
 
-</ul>
+</ol>
