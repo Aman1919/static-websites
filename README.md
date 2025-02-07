@@ -1,59 +1,63 @@
-# static-websites
+<!-- Add a dark theme for GitHub README -->
+<div align="center">
 
-<h2>These are some random projects i build with html ,css and js some of them by copy some webiste ,from frontpractice etc .
-</h2>
-<ol>
-<li> <a href="https://aman1919.github.io/static-websites/weather/index.html">Weather App</a></li>
-<li> <a href="https://aman1919.github.io/static-websites/Html-table-builder/index.html">Html table builder</a></li>
-<li> <a href="https://aman1919.github.io/static-websites/chess/index.html">Chess Game (In-Progress)</a></li>
+# 📌 Static Websites
 
-<li> <a href="https://aman1919.github.io/static-websites/flappyBird/index.html">Flappy bird</a></li>
+<h2>Collection of Mini Projects Built with HTML, CSS, and JavaScript</h2>
 
-<li> <a href="https://aman1919.github.io/static-websites/roman/index.html">Roman Converter</a></li>
+🌙 **Dark Mode Enabled** (for GitHub viewers)  
+These are some projects I built for practice—some inspired by existing websites, some from [Frontend Practice](https://www.frontendpractice.com/), and others as fun experiments.
 
-<li><a href="https://aman1919.github.io/static-websites/resume-Builder/index.html">Resume Builder</a></li>
+</div>
 
-<li><a href="https://aman1919.github.io/static-websites/calculator/calculator.html">Calculator</a></li>
+---
 
-<li><a href="https://aman1919.github.io/static-websites/To%20do%20list/index.html">To do list</a></li>
+### 🚀 Projects
 
-<li><a href="https://aman1919.github.io/static-websites/Snake%20game/index.html">Snake Game</a></li>
+- [Weather App](https://aman1919.github.io/static-websites/weather/index.html)
+- [HTML Table Builder](https://aman1919.github.io/static-websites/Html-table-builder/index.html)
+- [Chess Game (In-Progress)](https://aman1919.github.io/static-websites/chess/index.html)
+- [Flappy Bird](https://aman1919.github.io/static-websites/flappyBird/index.html)
+- [Roman Numeral Converter](https://aman1919.github.io/static-websites/roman/index.html)
+- [Resume Builder](https://aman1919.github.io/static-websites/resume-Builder/index.html)
+- [Calculator](https://aman1919.github.io/static-websites/calculator/calculator.html)
+- [To-Do List](https://aman1919.github.io/static-websites/To%20do%20list/index.html)
+- [Snake Game](https://aman1919.github.io/static-websites/Snake%20game/index.html)
+- [Super Tic-Tac-Toe](https://aman1919.github.io/static-websites/tic-tac-toe/index.html)
+- [Music Website Clone](https://aman1919.github.io/static-websites/copy%20%20music%20website/index.html)
+- [Website Clone 1](https://aman1919.github.io/static-websites/copy%20website%20first/index2.html)
+- [NGO Website Clone](https://aman1919.github.io/static-websites/copy%20website%20ngo/copy/nav.html)
+- [Count Randomizer](https://aman1919.github.io/static-websites/count-random/count.html)
+- [Layout 2](https://aman1919.github.io/static-websites/layout%202/ne_w.html)
+- [Parking Lot Management System](https://aman1919.github.io/static-websites/parking_lot_mangement/plms.html)
+- [First Web Page](https://aman1919.github.io/static-websites/responsive%20page/test.html)
+- [Rock, Paper, Scissors](https://aman1919.github.io/static-websites/rock-paper-scissors/index.html)
+- [Layout 1](https://aman1919.github.io/static-websites/webpage%20layout%201/web_page.html)
 
-<li><a href="https://aman1919.github.io/static-websites/tic-tac-toe/index.html">Super Tic Tac toe</a></li>
+---
 
-<li><a href="https://aman1919.github.io/static-websites/copy%20%20music%20website/indexj.html">Copy Music Website</a></li>
+### 🎨 Frontend Practice Projects
+Projects inspired by [Frontend Practice](https://www.frontendpractice.com/):
 
- <li> <a href="https://aman1919.github.io/static-websites/copy%20website%20first/index2.html"
-> copy website first</a> </li>
-<li><a  href="https://aman1919.github.io/static-websites/copy%20website%20ngo/copy/nav.html">copy website ngo</a></li>
+- [Ableton](https://aman1919.github.io/static-websites/frontend/Ableton/index.html)
+- [Backstage Talks](https://aman1919.github.io/static-websites/frontend/backstage%20talks/)
+- [Lobe Tour](https://aman1919.github.io/static-websites/frontend/lobe%20tour/)
 
-<li><a href="https://aman1919.github.io/static-websites/count-random/count.html">Count</a></li>
+---
 
-<ul>
-Frontend Practice .Com:-
+---
 
-<li><a href ="https://aman1919.github.io/static-websites/frontend/Ableton/index.html">Ableton</a></li>
+## 🕶️ Three.js Projects  
+(Interactive 3D experiences using **Three.js**)
 
-<li> <a href="https://aman1919.github.io/static-websites/frontend/backstage%20talks/">Backstage talks</a></li>
+- [Rubix Cube](https://aman1919.github.io/static-websites/threejs/rotating-cube/index.html)  
 
-<li> <a href="https://aman1919.github.io/static-websites/frontend/lobe%20tour/">lobe tour</a></li>
+*(Add more Three.js projects as you build them! 🚀)*  
 
-</ul>
+---
 
-<li><a href="https://aman1919.github.io/static-websites/layout%202/ne_w.html">Layout 2</a></li>
-
- <li> <a href="https://aman1919.github.io/static-websites/parking_lot_mangement/plms.html">
-parking lot magement system</a></li>
-<li>
-<a
-href="https://aman1919.github.io/static-websites/responsive%20page/test.html">
-First Web page
-</a>
-</li>
-<a 
-href= "https://aman1919.github.io/static-websites/rock-paper-scissors/index.html">Rock,paper,scissors</a></li>
-
-<li><a  href="https://aman1919.github.io/static-websites/webpage%20layout%201/web_page.html">
-layout 1 </a></li>
-
-</ol>
+### 🔥 How to Use
+Clone this repository and explore the projects in your browser:
+```sh
+git clone https://github.com/aman1919/static-websites.git
+cd static-websites
