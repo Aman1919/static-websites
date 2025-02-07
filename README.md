@@ -50,7 +50,7 @@ Projects inspired by [Frontend Practice](https://www.frontendpractice.com/):
 ## 🕶️ Three.js Projects  
 (Interactive 3D experiences using **Three.js**)
 
-- [Rubix Cube](https://aman1919.github.io/static-websites/threejs/rotating-cube/index.html)  
+- [Rubix Cube](https://rubix-cube.onrender.com)  
 
 *(Add more Three.js projects as you build them! 🚀)*  
 
