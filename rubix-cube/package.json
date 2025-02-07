@@ -1,0 +1,41 @@
+{
+  "name": "rubix-cube",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://aman1919.github.io/rubix-cube",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.120.4",
+    "@react-three/fiber": "^8.17.10",
+    "@tweenjs/tween.js": "^25.0.0",
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.12.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.171.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/dat.gui": "^0.7.13",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/three": "^0.171.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^6.3.0",
+    "globals": "^15.14.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.18.2",
+    "vite": "^6.0.5"
+  }
+}
