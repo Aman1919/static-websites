@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCX | Dal Chinii Xpress — The Family Restaurant, Mayur Vihar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon: #6B1B1E;
+    --maroon-dark: #4A1114;
+    --clay: #C1622E;
+    --gold: #DFA53E;
+    --cream: #F7EFE1;
+    --paper: #FFFBF3;
+    --ink: #241A16;
+    --olive: #6E7550;
+    --line: rgba(36,26,22,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;
+    background:linear-gradient(to bottom, rgba(20,12,10,0.55), transparent);
+    transition:background .3s ease;
+  }
+  .nav.scrolled{ background:var(--paper); box-shadow:0 2px 14px rgba(0,0,0,0.08); }
+  .nav.scrolled .nav-brand, .nav.scrolled .nav-links a{ color:var(--ink); }
+  .nav-brand{
+    font-family:'Fraunces',serif; font-weight:700; font-size:1.15rem;
+    letter-spacing:.02em; color:var(--paper);
+  }
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    color:var(--paper); text-decoration:none; font-size:.93rem; font-weight:500;
+  }
+  .nav-cta{
+    background:var(--clay); color:var(--paper) !important; padding:9px 18px;
+    border-radius:3px; text-decoration:none; font-size:.9rem; font-weight:600;
+  }
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:flex-end;
+    background:url('images/storefront.png') center 30%/cover no-repeat;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(24,14,12,0.92) 5%, rgba(24,14,12,0.55) 45%, rgba(24,14,12,0.25) 75%);
+  }
+  .hero-content{ position:relative; z-index:2; padding:0 0 88px; color:var(--paper); }
+  .hero-eyebrow{
+    font-size:.95rem; color:var(--gold); font-weight:500; margin-bottom:14px; letter-spacing:.01em;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem, 7vw, 5.4rem); color:var(--paper); line-height:1.02; letter-spacing:-.01em;
+  }
+  .hero .tagline{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+    font-size:clamp(1.2rem, 2.2vw, 1.6rem); color:var(--gold); margin-top:10px;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:22px; align-items:center; margin-top:30px;
+    font-size:.95rem; color:#EFE3D3;
+  }
+  .hero-rating{ display:flex; align-items:center; gap:8px; }
+  .hero-rating .stars{ color:var(--gold); letter-spacing:1px; }
+  .hero-actions{ display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; padding:14px 28px; border-radius:3px; text-decoration:none;
+    font-weight:600; font-size:.95rem; border:1.5px solid transparent; transition:transform .15s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--clay); color:var(--paper); }
+  .btn-ghost{ border-color:rgba(247,239,225,0.55); color:var(--paper); }
+
+  /* ---------- SECTION helpers ---------- */
+  section{ padding:96px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head .kicker{ color:var(--clay); font-weight:600; font-size:.95rem; margin-bottom:10px; display:block; }
+  .section-head h2{ font-size:clamp(2rem,3.6vw,2.9rem); line-height:1.08; }
+  .section-head p{ margin-top:16px; color:#4A3A32; font-size:1.05rem; max-width:52ch; }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--paper); }
+  .about-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; }
+  .about-copy p{ color:#4A3A32; margin:0 0 18px; font-size:1.05rem; }
+  .about-photos{ position:relative; }
+  .about-photos img{ border-radius:4px; }
+  .photo-a{ width:78%; box-shadow:0 24px 50px -18px rgba(36,26,22,.45); }
+  .photo-b{
+    width:56%; position:absolute; right:-4%; bottom:-13%;
+    border:6px solid var(--paper); box-shadow:0 20px 40px -16px rgba(36,26,22,.5);
+  }
+  .stat-row{ display:flex; gap:44px; margin-top:34px; flex-wrap:wrap; }
+  .stat-num{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--maroon); font-weight:600; }
+  .stat-label{ font-size:.88rem; color:#6b5a50; margin-top:2px; }
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; gap:70px;}
+    .about-photos{ order:-1; }
+  }
+
+  /* ---------- MENU ---------- */
+  .menu{ background:var(--maroon); color:var(--paper); position:relative; overflow:hidden; }
+  .menu .section-head p{ color:#E9D2C8; }
+  .menu .section-head .kicker{ color:var(--gold); }
+  .menu .section-head h2{ color:var(--paper); }
+  .menu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(247,239,225,0.16); border-radius:6px; overflow:hidden; }
+  .menu-card{ background:var(--maroon-dark); padding:36px 34px; }
+  .menu-card h3{
+    font-family:'Fraunces',serif; color:var(--gold); font-size:1.35rem; font-weight:600; margin-bottom:22px;
+    padding-bottom:14px; border-bottom:1px solid rgba(247,239,225,0.18);
+  }
+  .dish{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; font-size:.98rem; }
+  .dish + .dish{ border-top:1px dashed rgba(247,239,225,0.14); }
+  .dish-name{ color:#F7EFE1; }
+  .dish-name span{ display:block; font-size:.8rem; color:#CBA79C; margin-top:2px; }
+  .dish-price{ color:var(--gold); font-weight:600; white-space:nowrap; }
+  .menu-note{ margin-top:30px; text-align:center; color:#E9D2C8; font-size:.92rem; }
+  @media (max-width:760px){ .menu-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{ background:var(--cream); }
+  .gallery-grid{
+    column-count:4;
+    column-gap:16px;
+  }
+  .gallery-grid figure{
+    margin:0 0 16px;
+    break-inside:avoid;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 10px 26px -16px rgba(36,26,22,.4);
+    background:#EFE4D4;
+  }
+  .gallery-grid img{
+    width:100%; display:block;
+    transition:transform .4s ease;
+  }
+  .gallery-grid figure:hover img{ transform:scale(1.045); }
+  .gallery-more{
+    text-align:center; margin-top:30px;
+  }
+  .gallery-more a{
+    display:inline-block; font-size:.92rem; font-weight:600; color:var(--maroon);
+    border-bottom:1.5px solid var(--clay); padding-bottom:2px; text-decoration:none;
+  }
+  @media (max-width:860px){ .gallery-grid{ column-count:3; } }
+  @media (max-width:600px){ .gallery-grid{ column-count:2; column-gap:12px; } .gallery-grid figure{ margin-bottom:12px; } }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{ background:var(--paper); }
+  .review-strip{ display:flex; gap:28px; overflow-x:auto; padding-bottom:8px; }
+  .review-card{
+    flex:0 0 300px; background:var(--cream); border-radius:6px; padding:28px;
+    border:1px solid var(--line);
+  }
+  .review-card .stars{ color:var(--clay); letter-spacing:1px; margin-bottom:14px; display:block; }
+  .review-card p{ font-size:.96rem; color:#3d302a; margin:0 0 14px; }
+  .review-who{ font-size:.85rem; color:#8a746a; font-weight:500; }
+
+  /* ---------- VISIT ---------- */
+  .visit{ background:var(--ink); color:var(--paper); }
+  .visit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .visit .section-head h2{ color:var(--paper); }
+  .visit .section-head p{ color:#CBBBAF; }
+  .visit .section-head .kicker{ color:var(--gold); }
+  .info-block{ margin-bottom:30px; }
+  .info-block h4{ font-family:'Fraunces',serif; font-size:1.05rem; color:var(--gold); margin-bottom:8px; font-weight:600; }
+  .info-block p, .info-block a{ color:#E7DDD3; font-size:.98rem; text-decoration:none; }
+  .hours-row{ display:flex; justify-content:space-between; max-width:280px; padding:4px 0; font-size:.95rem; color:#E7DDD3; }
+  .map-frame{
+    border-radius:6px; overflow:hidden; height:100%; min-height:340px;
+    border:1px solid rgba(247,239,225,0.15);
+  }
+  .map-frame iframe{ width:100%; height:100%; min-height:340px; border:0; filter:grayscale(.2) contrast(1.05); }
+  @media (max-width:860px){ .visit-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--maroon-dark); color:#D9C4BA; padding:34px 0; text-align:center; font-size:.85rem; }
+  footer strong{ color:var(--gold); font-family:'Fraunces',serif; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-brand">DCX · Dal Chinii Xpress</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:+917042061444">Call Now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-content">
+    <div class="hero-eyebrow">Mayur Vihar, New Delhi</div>
+    <h1>Dal Chinii<br>Xpress</h1>
+    <div class="tagline">The Family Restaurant</div>
+    <div class="hero-meta">
+      <div class="hero-rating"><span class="stars">★★★★★</span> 4.8 from 450+ diners</div>
+      <div>Open daily · 12 PM – 11 PM</div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#menu">View the Menu</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/place/DCX+%7C+DAL+CHINI+XPRESS/@28.6043,77.2898959,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce50d7b382fad:0x9b341ddbc38b4dd9!8m2!3d28.6042953!4d77.2924708!16s%2Fg%2F11w4ckf9bc" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="section-head" style="margin-bottom:26px;">
+        <span class="kicker">Our Story</span>
+        <h2>Tandoor smoke, wooden tables, and food made for sharing</h2>
+      </div>
+      <p>Tucked opposite Mother Dairy Safal in Pratap Nagar, DCX brings together the two cuisines every Delhi family grew up on — North Indian curries fresh off the tandoor, and a Chinese menu built for second helpings. The dining room keeps things easy: warm wood tables, low pendant lighting, and a wall of brick that makes a weekday dinner feel like a bit of an occasion.</p>
+      <p>Everything comes out of an open kitchen where the chaap is grilled to order and the naans go straight from clay oven to table. It's built to be unhurried — the kind of place you settle into for a couple of hours with people you like.</p>
+      <div class="stat-row">
+        <div><div class="stat-num">4.8★</div><div class="stat-label">Google rating, 450+ reviews</div></div>
+        <div><div class="stat-num">12–11</div><div class="stat-label">Open every day of the week</div></div>
+        <div><div class="stat-num">60+</div><div class="stat-label">Dishes across tandoor &amp; curry menus</div></div>
+      </div>
+    </div>
+    <div class="about-photos">
+      <img class="photo-a" src="images/interior-main.png" alt="DCX dining room with wooden tables and pendant lighting">
+      <img class="photo-b" src="images/interior-wall.png" alt="Brick wall seating corner at DCX">
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">From the Menu</span>
+      <h2>A few things worth ordering</h2>
+      <p>The full menu runs long — tandoor starters, North Indian curries, breads, and more. Here's a taste of what regulars keep coming back for.</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <h3>Breads, Fresh off the Tandoor</h3>
+        <div class="dish"><div class="dish-name">Garlic Naan</div><div class="dish-price">₹72</div></div>
+        <div class="dish"><div class="dish-name">Cheese Garlic Naan</div><div class="dish-price">₹169</div></div>
+        <div class="dish"><div class="dish-name">Stuff Naan<span>Aloo Pyaaz or Paneer Pyaaz</span></div><div class="dish-price">₹119–139</div></div>
+        <div class="dish"><div class="dish-name">Lachha Parantha</div><div class="dish-price">₹54</div></div>
+        <div class="dish"><div class="dish-name">DCX Spl. Peri-Peri Naan</div><div class="dish-price">₹89</div></div>
+        <div class="dish"><div class="dish-name">Bread Basket<span>Butter naan, lachha parantha, missi &amp; aloo kulcha</span></div><div class="dish-price">₹269</div></div>
+      </div>
+
+      <div class="menu-card">
+        <h3>Veg, Off the Grill</h3>
+        <div class="dish"><div class="dish-name">Paneer Tikka<span>Malai, achari, hariyali or saufiyana</span></div><div class="dish-price">₹329</div></div>
+        <div class="dish"><div class="dish-name">Tandoori Soya Chaap</div><div class="dish-price">₹259</div></div>
+        <div class="dish"><div class="dish-name">Kurkure Malai Kebab</div><div class="dish-price">₹349</div></div>
+        <div class="dish"><div class="dish-name">Hara Bhara Kebab</div><div class="dish-price">₹299</div></div>
+        <div class="dish"><div class="dish-name">Dahi Ke Sholay</div><div class="dish-price">₹319</div></div>
+        <div class="dish"><div class="dish-name">Tandoori Veg Platter<span>Paneer tikka, mushroom, sholay &amp; kebab</span></div><div class="dish-price">₹599</div></div>
+      </div>
+
+      <div class="menu-card">
+        <h3>Non-Veg, Off the Grill</h3>
+        <div class="dish"><div class="dish-name">Tandoori Chicken<span>Half / full</span></div><div class="dish-price">₹299/499</div></div>
+        <div class="dish"><div class="dish-name">Afghani Chicken<span>Half / full</span></div><div class="dish-price">₹349/549</div></div>
+        <div class="dish"><div class="dish-name">Chicken Seekh Kebab</div><div class="dish-price">₹359</div></div>
+        <div class="dish"><div class="dish-name">Fish Tikka</div><div class="dish-price">₹439</div></div>
+        <div class="dish"><div class="dish-name">Tandoori Prawns</div><div class="dish-price">₹479</div></div>
+        <div class="dish"><div class="dish-name">Tandoori Non-Veg Platter<span>Chicken, malai tikka, seekh &amp; mutton seekh</span></div><div class="dish-price">₹699</div></div>
+      </div>
+
+      <div class="menu-card">
+        <h3>North Indian Mains</h3>
+        <div class="dish"><div class="dish-name">Butter Chicken<span>Half / full</span></div><div class="dish-price">₹449/699</div></div>
+        <div class="dish"><div class="dish-name">Kadhai Chicken<span>Half / full</span></div><div class="dish-price">₹449/699</div></div>
+        <div class="dish"><div class="dish-name">Mutton Rogan Josh</div><div class="dish-price">₹479</div></div>
+        <div class="dish"><div class="dish-name">Bhuna Mutton</div><div class="dish-price">₹489</div></div>
+        <div class="dish"><div class="dish-name">Chicken Tikka Masala<span>Half / full</span></div><div class="dish-price">₹479/729</div></div>
+        <div class="dish"><div class="dish-name">Egg Curry<span>2 pcs</span></div><div class="dish-price">₹229</div></div>
+      </div>
+    </div>
+    <div class="menu-note">Ask your server for the full menu — biryanis, Chinese mains, and cocktail naans included.</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">A Look Inside</span>
+      <h2>The room, and what comes out of the kitchen</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNwzAtYTKq0Ko4MWlQtnm8SXkSRWuaKCSbnebCX2k_u96vjIe2zvteK8KPTQh1nKcb3-7LbeHdv5ccx3-YZaGGkuf_R9qaTpCMcVotJAOKUprXu_MeKK9_eznMC7fNs7uHQA2yJ0eevfVi=s0" alt="DCX Dal Chinii Xpress storefront"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnsVNgeRCe2awjivjYgNPjXZHMnblYlatEvDTWegMd7cKvx9WsKRVR-zuhs7SkN_iT_L0jzbVFEJwpu3akogV5nvLxMHVJp2a1k-1lPR93q4tOu9ab9nKKLy8VWGSATOAEAUr2PImrIkWll=s0" alt="Dish served at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmMsV70ItHuMO4yCZM-XlRiRw2zMnufEbyg-scxWb6dL4qGpjeB5ElfYGRYYzOiqu4upTT6ImiCU4e3Ir-XqsV0urQthoiXopzq1yALQlkmcIYKHA8cf7Ptf3OwXe_ndzqCFBDjLiBDljE=s0" alt="Dining area ambience at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnsQd6oJ4xnlcA8Qf1Oy-6phpbFyD5-ygMhojkIOlnukGRWexj3NWfa0gDQLsKgY-CJ7J1x-q5Xz6DXRbVF3kuvWDXvgx1XZc-Ia0Kr-tu1GKF96aOG8BJdQxIZfpForvzEZKwQUHN1CsvN=s0" alt="Food close-up at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl-s_u1CUX97GjPl8UCS2h6YjObIR3O8z6quzhbwG23KE_J0CkexknkyUnroWa6QNfWku4EyuSD915JcrB361EbzLxSXef-P6_MQovsBdPM5POI-JmHxTO2Wl3nfxKX8rSk6TV0bYbd1L8y=s0" alt="North Indian dish plated at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlya-Ox5W1LzDclfmXSlAfgnMOr6EzIF1-fuYQA6OTJIbbRms7FVQwBhypPU_JD8o1wTeUSPglGJOGC79c1nkOUvWtOXFw80BOGxrW3n8zOtfjAImdg55dRRbIo3mYPkXRTvGWOXvYz1h0=s0" alt="Butter chicken at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWniIbnEz47jWRF41-SuYfkEn2_JGP1DCkS7cWL_ZzxOESctxPO9M1ax3aDOus78xTnOhRrLJZRUY85_Rxw6eglvdw4JOch2sMmRF5lg3Ino8OAZryUP1i9CJW4szrqQ3_paESD6RcnWsKwy=s0" alt="Iced coffee at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkV6aaSPPE0v_xW3ktGYv9CLc9tzTOQP9DJCYI1JKxjyujMXkw328kRYVRo7h72Lm7Y58A0gabUkRSYaB8lpA-0XQq34VpAI-ade3TIyiJe-Wv3NM2AyB-F9vEVKNbBp9Nj2lEFE0W4oSmD=s0" alt="Dish served at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnSDsp_KlONdilBoUR0t27ojKvB8EKYc1b-Z8POcSimb9sQJKT4OkBMMMBlx3CglBwInNTtif23-G_2ErOARVx0wdMgiBTRJgvhQbzGLn722kxinJJJrDQtqzlWDk0SAgk0zQbhhe2OJzs=s0" alt="Ambience corner at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkubd7f5_4pGNL9Pvq03wXrwsMb--v1kyC5ei3jWpnuhHYamiaE7_cvp9saytJqsoUe3ZGqa1BFaFMtEn_TUEhBRZvFU1QlH7ck9K8SnWQKYMbyZnMZdtULyzYplWbtxmE6JLu981QSqFw=s0" alt="Dish served at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWldvWVB0MRY5MccomZp7c2SZUWZ1hs-6PP5lgJuKdsdc6Q-Q33iaaYQgEcss5arHbIHQ2HV8JSO3ptJrm2KHU4TH9jrXQBYNmm4teYsgUTqE-epGdATLV0j6pnwrNmn-SSG4rNX_Tr5d-BT=s0" alt="Ambience seating at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlr_1aL9JZZAKSl0iUcvkqIwbxTvC3DMJ1s_GkuDmwn4yhQltwfnBMJLJuGjO1Cq7NVJDg0vTl4T_EWnOksMP2AwX9kZSbBMbr0u8N0QDwtaaCmJBxao9IphiS87uzDdNFovRELOBRbu9o=s0" alt="North Indian cuisine at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnuEYp6xBuTr-UE6CdxiOTAdW_fX00lSuAZNNVjA3N6MPLDyII-8J4A7_KSpTvnv-BnxR8eodua8Qi8GCKGNgSzJfzva_BDoorCPxhqXCJPSoPLxDhX75ZZAg7pxs8NOTB0KB_N=s0" alt="Dish served at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnjUjbNWIdSqf45ZSdikvSt8p-OJO1YTcncB7zJpVXkH30EPk7vON287zIfOPtrbBlRRbUeYyjdMGzBIJES2RGqjNHykMGyH_LvBGGd_pDGMcbp_-W0_MC3-kaVt3rcz-Kj_90mfIQPNM4=s0" alt="Dish served at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWny9Kw8qM73PJ0Ip68gplM4SMI_nBPCtVIdZQXHFjE5He8f_aGp-uuRo2QOZMqEaNPc6XC5ryyypUz2GJzjl7Pp07TJvZGbfAhPEExcr5DVU3vrtucoupr5L__BFhsRIQ_n-16jTPR-VPJm=s0" alt="Ambience at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl2wC9n4Mm5h9FP3MAyig9AeIUJUe_sX855ka_dEs2MKzKAhcUIKsPu-8gABAABnOfSZhgPua4sd1gSoyI1RYhbt70Mg0TuGU9veWqrGUfLTIPmwb3MmSAArE5Q4x25S9z3em_Uf6uBSk43=s0" alt="Dining ambience at DCX"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkhY4shoPppF4v0oDHWIOiPLXWoflW61aquBy7GVYYFZGo4LTcxWJq_3I6uRiyIN7f2APIN57vZGr-m74J_f6sKjaSEreSZrm7pAQu4XG6F1Pjc4l5XQTUGY_w92iono4MKXBtRgaworj6O=s0" alt="Ambience at DCX"></figure>
+    </div>
+    <div class="gallery-more">
+      <a href="https://www.google.com/maps/place/DCX+%7C+DAL+CHINI+XPRESS/@28.6043,77.2898959,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce50d7b382fad:0x9b341ddbc38b4dd9!8m2!3d28.6042953!4d77.2924708!16s%2Fg%2F11w4ckf9bc" target="_blank" rel="noopener">See more photos on Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What People Say</span>
+      <h2>450+ reviews, and counting</h2>
+    </div>
+    <div class="review-strip">
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>A favourite for family brunches and dinners — the chef clearly knows what they're doing, and the staff make you feel looked after.</p>
+        <div class="review-who">Google review</div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>Great food and an even better vibe — polished, comfortable, and the kind of place that's easy to recommend.</p>
+        <div class="review-who">Google review</div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>A solid mix of Indian and Chinese dishes, generous portions, and drinks that stood out as the highlight of the meal.</p>
+        <div class="review-who">Google review</div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>The biryani alone is worth the trip, and the team is polite and professional from the moment you walk in.</p>
+        <div class="review-who">Google review</div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>Cozy and welcoming — a good spot to slow down with friends over fresh, well-presented food and coffee.</p>
+        <div class="review-who">Google review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <div class="section-head">
+        <span class="kicker">Visit Us</span>
+        <h2>Come hungry, stay a while</h2>
+      </div>
+      <div class="info-block">
+        <h4>Address</h4>
+        <p>180, Ground Floor, opp. Mother Dairy Safal,<br>Pratap Nagar, Mayur Vihar, New Delhi, Delhi 110091</p>
+      </div>
+      <div class="info-block">
+        <h4>Phone</h4>
+        <a href="tel:+917042061444">+91 70420 61444</a>
+      </div>
+      <div class="info-block">
+        <h4>Hours</h4>
+        <div class="hours-row"><span>Monday – Sunday</span><span>12:00 PM – 11:00 PM</span></div>
+      </div>
+      <a class="btn btn-primary" href="https://www.google.com/maps/place/DCX+%7C+DAL+CHINI+XPRESS/@28.6043,77.2898959,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce50d7b382fad:0x9b341ddbc38b4dd9!8m2!3d28.6042953!4d77.2924708!16s%2Fg%2F11w4ckf9bc" target="_blank" rel="noopener" style="margin-top:10px;">Open in Google Maps</a>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=DCX+Dal+Chini+Xpress,+Pratap+Nagar,+Mayur+Vihar,+New+Delhi&output=embed"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>DCX · Dal Chinii Xpress</strong> — The Family Restaurant, Mayur Vihar, New Delhi
+</footer>
+
+<script>
+  window.addEventListener('scroll', function(){
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+
+</body>
+</html>
